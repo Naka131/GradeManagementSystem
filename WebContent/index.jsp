@@ -11,6 +11,5 @@
     <p><a href="#">成績登録</a></p>
     <p><a href="#">成績参照</a></p>
     <p><a href="#">科目管理</a></p>
-    a
 </body>
 </html>
