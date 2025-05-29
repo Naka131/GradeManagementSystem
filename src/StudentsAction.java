@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Students;
-import dao.StudentlistDAO;
+import dao.StudentDAO;
 import tool.Action;
 
 public class StudentsAction extends Action {
@@ -14,7 +14,7 @@ public class StudentsAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 
-		StudentlistDAO sDAO = new StudentlistDAO();
+		StudentDAO sDAO = new StudentDAO();
 		List<Students> st = sDAO.search();
 
 		session.setAttribute("stList",st);
@@ -23,5 +23,4 @@ public class StudentsAction extends Action {
 
 		return "WEB-INF/student_list.jsp";
 	}
-
 }

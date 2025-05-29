@@ -1,7 +1,7 @@
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.StudentUpdateDAO;
+import dao.StudentDAO;
 import tool.Action;
 
 public class StudentUpdateAction extends Action {
@@ -12,7 +12,7 @@ public class StudentUpdateAction extends Action {
 		if (student_id == null)
 			student_id = "";
 
-		StudentUpdateDAO uDAO = new StudentUpdateDAO();
+		StudentDAO uDAO = new StudentDAO();
 		uDAO.update(student_id, is_enrolled);
 
 		return "WEB-INF/update_success.jsp";
