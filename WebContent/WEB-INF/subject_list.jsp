@@ -30,13 +30,14 @@
                 <td><%= sj.getSubject_name() %></td>
                 <td>
                 <form method="post" action="SubjectDelete.action">
-             		<input type="hidden" name="subject_code" value="<%= sj.getSubject_code() %>>" />
+             		<input type="hidden" name="subject_code" value="<%= sj.getSubject_code() %>" />
              		<input type="submit" value="削除" />
             	</form>
             	</td>
                 <td>
                 <form method="post" action="input.SubjectUpdateInput.action">
-             		<input type="hidden" name="subject_code" value="<%= sj.getSubject_code() %>>" />
+             		<input type="hidden" name="subject_code" value="<%= sj.getSubject_code() %>" />
+             		<input type="hidden" name="subject_name" value="<%= sj.getSubject_name() %>" />
              		<input type="submit" value="更新" />
             	</form>
             	</td>
@@ -53,6 +54,6 @@
      <%
         }
     %>
-    <a href="index">ホームへ</a>
+    <a href="index.jsp">ホームへ</a>
 </body>
 </html>

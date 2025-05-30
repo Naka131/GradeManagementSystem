@@ -53,9 +53,24 @@ public class SubjectsDAO extends DAO {
 		st.setString(2, subject_name);
 		st.setString(3, subject_code);
 		st.executeUpdate();
-		
-		
+
+
 		st.close();
+		con.close();
+
+		return null;
+	}
+	public String delete(String subject_code) throws Exception {
+
+		Connection con=getConnection();
+
+		PreparedStatement s=con.prepareStatement(
+			"delete from subject where subject_code=?");
+		s.setString(1, subject_code);
+		s.executeUpdate();
+
+
+		s.close();
 		con.close();
 
 		return null;
