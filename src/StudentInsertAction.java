@@ -32,6 +32,7 @@ public class StudentInsertAction extends Action {
             return "WEB-INF/success.jsp";
             
 		} catch (Exception e) {
+			System.err.println(e);
 			return "WEB-INF/error.jsp";
 		}
 	}

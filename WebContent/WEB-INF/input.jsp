@@ -12,14 +12,13 @@
 <body>
 <%
         List<School> scList = (List<School>)session.getAttribute("scList");
-        List<Class> cList = (List<Class>)session.getAttribute("cList");
 %>
 	<h2>書籍管理システム</h2>
 	<form action="input.Output.action" method="POST">
 		【学籍番号】<br>
 		<input type="text" name="student_id" required maxlength="10"><br><br>
 		【学校コード】<br>
-		<select name="school_code" required>
+		<select id="school_code" name="school_code" required>
 		<%
 		    for (School sc : scList) {
 		%>
@@ -28,23 +27,16 @@
 		    }
 		%>
 		</select><br><br>
-		
+
 		【クラス番号】<br>
-		<select name="class_number" required>
-		<%
-		    for (Class c : cList) {
-		%>
-		    <option value="<%= c.getClass_number() %>"><%= c.getClass_number() %></option>
-		<%
-		    }
-		%>
+		<select id="class_number"  name="class_number" required>
 		</select><br><br>
 		【氏名】<br>
         <input type="text" id="text" name="student_name" required><br><br>
-        
+
 		【入学年度】<br>
         <input type="number" id="text" name="enrollment_year" required oninput="limitLength(this, 4)"><br><br>
-        
+
 		【在籍状況】<br>
         <select name="is_enrolled">
 			<option value="在籍"selected>在籍</option>
@@ -63,6 +55,34 @@
 	      el.value = el.value.slice(0, maxLength);
 	    }
 	  }
+
+	  const sc = document.getElementById("school_code");
+	  sc.addEventListener("change", (event) => {
+		  console.log("change");
+		  const cl = [];
+		  console.log(cl);
+		  const params = new URLSearchParams();
+		  params.append("school_code", event.target.value);
+		  fetch("StudentGetClass.action",{
+			  method: 'POST',
+			  headers: {
+				    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+				  },
+			  body: params.toString()
+				})
+		  <%
+		  	List<Class> c2List = (List<Class>)session.getAttribute("cList2");
+		    for (Class c : c2List) {
+		%>
+		    cl.push('<option value="<%= c.getClass_number() %>"><%= c.getClass_number() %></option>')
+		<%
+		    }
+		%>
+		  console.log(cl);
+		  const class_number = document.getElementById("class_number");
+		  const options = document.createElement("option")
+		  class_number.innerHTML = cl.join("");
+	  });
 	</script>
 </body>
 </html>

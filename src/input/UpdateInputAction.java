@@ -7,7 +7,7 @@ import tool.Action;
 public class UpdateInputAction extends Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "WEB-INF/update.jsp"; 
+        return "WEB-INF/update.jsp";
     }
 }
 

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -6,26 +5,29 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Class;
-import bean.School;
-import dao.SchoolCodeDAO;
+import dao.ClassNumberDAO;
 import tool.Action;
 
-public class StudentsRegisterAction extends Action {
+public class StudentGetClassAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		
-		
-		SchoolCodeDAO scDAO = new SchoolCodeDAO();
-		List<School> sc = scDAO.search();
-		
-		List<Class> c = new ArrayList<>();
-		session.setAttribute("scList",sc);
-		session.setAttribute("cList",c);
+		String school_code = request.getParameter("school_code");
 
+		ClassNumberDAO cDAO = new ClassNumberDAO();
 
-		return "WEB-INF/input.jsp";
+		List<Class> c = cDAO.search(school_code);
+
+		for (Class cla : c) {
+			System.out.println(cla.getClass_number());
+		}
+		
+		session.setAttribute("cList2",c);
+
+		return null;
+
 	}
 
 }
