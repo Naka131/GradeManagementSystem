@@ -8,7 +8,7 @@
 
 <body>
 	<h2>科目登録</h2>
-	<form action="SubjectOutput.action" method="POST">
+	<form action="input.SubjectOutput.action" method="POST">
 		【科目コード】<br>
 		<input type="text" name="subject_code" required><br><br>
 		【科目名】<br>

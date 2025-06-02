@@ -9,8 +9,8 @@
     <title>学生管理</title>
 </head>
 <body>
-<p><a href="SubjectsRegister.action">科目登録</a></p>
-<p><a href="SubjectsList.action">科目一覧</a></p>
+<p><a href="subject.SubjectsRegister.action">科目登録</a></p>
+<p><a href="subject.SubjectsList.action">科目一覧</a></p>
 <input type="button" value="戻る" onclick="history.back()">
 </body>
 </html>

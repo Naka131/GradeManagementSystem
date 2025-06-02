@@ -8,7 +8,7 @@
 <p>【科目コード】<%= subject_code %></p>
 <p>【科目名】<%= subject_name %></p>
 
-<form action="SubjectInsert.action" method="post">
+<form action="subject.SubjectInsert.action" method="post">
     <input type="hidden" name="subject_code" value="<%= subject_code %>">
     <input type="hidden" name="subject_name" value="<%= subject_name %>">
 

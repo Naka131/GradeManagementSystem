@@ -15,7 +15,7 @@
     %>
 <body>
 	<h2>更新</h2>
-	<form action="SubjectUpdate.action" method="POST">
+	<form action="subject.SubjectUpdate.action" method="POST">
 		<input type="hidden" name="subject_code" value="<%= subject_code %>" />
 		【科目コード】<br>
 		<input type="text" name="update_subject_code" value="<%= subject_code %>" /><br><br>
