@@ -9,7 +9,7 @@
     <title>学生管理</title>
 </head>
 <body>
-<p><a href="StudentsRegister.action">学生登録</a></p>
-<p><a href="Students.action">学生一覧</a></p>
+<p><a href="student.StudentsRegister.action">学生登録</a></p>
+<p><a href="student.Students.action">学生一覧</a></p>
 </body>
 </html>

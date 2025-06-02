@@ -16,7 +16,7 @@
 <p>【入学年度】<%= enrollment_year %></p>
 <p>【在籍状況】<%= is_enrolled %></p>
 
-<form action="StudentInsert.action" method="post">
+<form action="student.StudentInsert.action" method="post">
     <input type="hidden" name="student_id" value="<%= student_id %>">
     <input type="hidden" name="school_code" value="<%= school_code %>">
     <input type="hidden" name="class_number" value="<%= class_number %>">

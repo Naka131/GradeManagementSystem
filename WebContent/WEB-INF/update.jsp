@@ -14,7 +14,7 @@
     %>
 <body>
 	<h2>更新</h2>
-	<form action="StudentUpdate.action" method="POST">
+	<form action="student.StudentUpdate.action" method="POST">
 		<input type="hidden" name="student_id" value="<%= student_id %>" />
 		<h3>学籍番号<%=student_id %></h3>
 		【在籍状況】<br>

@@ -59,7 +59,7 @@
 	  const sc = document.getElementById("school_code");
 	  const params = new URLSearchParams();
 	  params.append("school_code", sc.value);
-	  fetch("StudentGetClass.action", {
+	  fetch("student.StudentGetClass.action", {
 	        method: 'POST',
 	        headers: {
 	            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -84,7 +84,7 @@
 		  const cl = [];
 		  const params = new URLSearchParams();
 		  params.append("school_code", event.target.value);
-		  fetch("StudentGetClass.action", {
+		  fetch("student.StudentGetClass.action", {
 		        method: 'POST',
 		        headers: {
 		            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
