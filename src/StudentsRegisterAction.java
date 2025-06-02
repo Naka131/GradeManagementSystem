@@ -15,14 +15,13 @@ public class StudentsRegisterAction extends Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		
-		
+
+
 		SchoolCodeDAO scDAO = new SchoolCodeDAO();
 		List<School> sc = scDAO.search();
-		
+
 		List<Class> c = new ArrayList<>();
 		session.setAttribute("scList",sc);
-		session.setAttribute("cList",c);
 
 
 		return "WEB-INF/input.jsp";

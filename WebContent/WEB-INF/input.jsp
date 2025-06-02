@@ -57,32 +57,34 @@
 	  }
 
 	  const sc = document.getElementById("school_code");
+	  const cn = document.getElementById("class_number");
 	  sc.addEventListener("change", (event) => {
 		  console.log("change");
 		  const cl = [];
 		  console.log(cl);
 		  const params = new URLSearchParams();
 		  params.append("school_code", event.target.value);
-		  fetch("StudentGetClass.action",{
-			  method: 'POST',
-			  headers: {
-				    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-				  },
-			  body: params.toString()
-				})
-		  <%
-		  	List<Class> c2List = (List<Class>)session.getAttribute("cList2");
-		    for (Class c : c2List) {
-		%>
-		    cl.push('<option value="<%= c.getClass_number() %>"><%= c.getClass_number() %></option>')
-		<%
-		    }
-		%>
-		  console.log(cl);
-		  const class_number = document.getElementById("class_number");
-		  const options = document.createElement("option")
-		  class_number.innerHTML = cl.join("");
-	  });
+		  fetch("StudentGetClass.action", {
+		        method: 'POST',
+		        headers: {
+		            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+		        },
+		        body: params.toString()
+		    })
+		    .then(response => response.json())
+		    .then(data => {
+		        cn.innerHTML = "";
+		        data.forEach(item => {
+		            const opt = document.createElement("option");
+		            opt.value = item.class_number;
+		            opt.textContent = item.class_number;
+		            cn.appendChild(opt);
+		        });
+		    })
+		    .catch(error => {
+		        console.error("Error fetching class list:", error);
+		    });
+		});
 	</script>
 </body>
 </html>

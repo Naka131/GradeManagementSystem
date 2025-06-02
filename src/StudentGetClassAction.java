@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,21 +13,29 @@ public class StudentGetClassAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession(false);
+
 		String school_code = request.getParameter("school_code");
 
 		ClassNumberDAO cDAO = new ClassNumberDAO();
 
-		List<Class> c = cDAO.search(school_code);
 
-		for (Class cla : c) {
-			System.out.println(cla.getClass_number());
-		}
-		
-		session.setAttribute("cList2",c);
+		List<Class> classList = cDAO.search(school_code);
 
-		return null;
+	    response.setContentType("application/json; charset=UTF-8");
+	    PrintWriter out = response.getWriter();
+
+	    // JSON配列として出力
+	    out.print("[");
+	    for (int i = 0; i < classList.size(); i++) {
+	        Class cla = classList.get(i);
+	        out.print("{\"class_number\":\"" + cla.getClass_number() + "\"}");
+	        if (i < classList.size() - 1) out.print(",");
+	    }
+	    out.print("]");
+	    out.close();
+	    
+	    return null;
 
 	}
 
