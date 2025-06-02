@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>書籍管理システム</title>
+<title>学生登録</title>
 </head>
 
 <body>
 <%
         List<School> scList = (List<School>)session.getAttribute("scList");
 %>
-	<h2>書籍管理システム</h2>
+	<h2>学生登録</h2>
 	<form action="input.Output.action" method="POST">
 		【学籍番号】<br>
 		<input type="text" name="student_id" required maxlength="10"><br><br>

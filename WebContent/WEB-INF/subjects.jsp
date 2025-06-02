@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>学生管理</title>
+    <title>科目管理</title>
 </head>
 <body>
 <p><a href="subject.SubjectsRegister.action">科目登録</a></p>
