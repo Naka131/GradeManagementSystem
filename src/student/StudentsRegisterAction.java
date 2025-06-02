@@ -25,7 +25,7 @@ public class StudentsRegisterAction extends Action {
 		session.setAttribute("scList",sc);
 
 
-		return "WEB-INF/input.jsp";
+		return "WEB-INF/studentinput.jsp";
 	}
 
 }
