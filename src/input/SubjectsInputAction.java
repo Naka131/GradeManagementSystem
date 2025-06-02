@@ -4,10 +4,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class UpdateInputAction extends Action {
+public class SubjectsInputAction extends Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "WEB-INF/update.jsp";
+        return "WEB-INF/subjects.jsp";
     }
 }
 

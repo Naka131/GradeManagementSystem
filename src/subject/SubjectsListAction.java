@@ -1,27 +1,27 @@
+package subject;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Students;
-import dao.StudentlistDAO;
+import bean.Subjects;
+import dao.SubjectsDAO;
 import tool.Action;
 
-public class StudentsAction extends Action {
+public class SubjectsListAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 
-		StudentlistDAO sDAO = new StudentlistDAO();
-		List<Students> st = sDAO.search();
+		SubjectsDAO sjDAO = new SubjectsDAO();
+		List<Subjects> sj = sjDAO.search();
 
-		session.setAttribute("stList",st);
+		session.setAttribute("sjList",sj);
 
 
-
-		return "WEB-INF/student_list.jsp";
+		return "WEB-INF/subject_list.jsp";
 	}
 
 }

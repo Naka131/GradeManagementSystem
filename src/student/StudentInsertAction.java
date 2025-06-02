@@ -1,8 +1,9 @@
+package student;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Students;
-import dao.StudentInsertDAO;
+import dao.StudentDAO;
 import tool.Action;
 
 public class StudentInsertAction extends Action {
@@ -26,12 +27,13 @@ public class StudentInsertAction extends Action {
             st.setIs_enrolled(is_enrolled);
 
             request.setAttribute("st", st);
-            StudentInsertDAO sDAO = new StudentInsertDAO();
+            StudentDAO sDAO = new StudentDAO();
             sDAO.insert(st);
             
             return "WEB-INF/success.jsp";
             
 		} catch (Exception e) {
+			System.err.println(e);
 			return "WEB-INF/error.jsp";
 		}
 	}

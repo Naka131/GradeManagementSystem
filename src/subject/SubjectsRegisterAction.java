@@ -1,13 +1,13 @@
-package input;
+package subject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class UpdateInputAction extends Action {
+public class SubjectsRegisterAction extends Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "WEB-INF/update.jsp";
+        return "WEB-INF/subjectinput.jsp";
     }
 }
 

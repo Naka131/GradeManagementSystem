@@ -35,7 +35,7 @@
                 <td><%= st.getEnrollment_year() %></td>
                 <td><%= st.getIs_enrolled() %></td>
                 <td>
-                <form method="post" action="StudentDelete.action">
+                <form method="post" action="student.StudentDelete.action">
              		<input type="hidden" name="student_id" value="<%= st.getStudent_id() %>" />
              		<input type="submit" value="削除" />
             	</form>

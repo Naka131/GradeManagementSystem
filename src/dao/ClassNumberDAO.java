@@ -10,7 +10,7 @@ import bean.Class;;
 
 
 public class ClassNumberDAO extends DAO {
-	public List<Class> search()
+	public List<Class> search(String school_code)
 		throws Exception {
 		List<Class> cList = new ArrayList<>();
 
@@ -18,15 +18,16 @@ public class ClassNumberDAO extends DAO {
 
 		PreparedStatement s;
 		s=con.prepareStatement(
-			"select * from class");
+			"select * from class where school_code=?");
+		s.setString(1, school_code);
 		ResultSet rs=s.executeQuery();
-		
+
 		while (rs.next()) {
 	        Class c = new Class();
 	        c.setClass_number(rs.getString("class_number"));
 	        cList.add(c);
 	    }
-		
+
 		s.close();
 		con.close();
 		return cList;
