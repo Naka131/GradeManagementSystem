@@ -57,11 +57,31 @@
 	  }
 
 	  const sc = document.getElementById("school_code");
+	  const params = new URLSearchParams();
+	  params.append("school_code", sc.value);
+	  fetch("StudentGetClass.action", {
+	        method: 'POST',
+	        headers: {
+	            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+	        },
+	        body: params.toString()
+	    })
+	    .then(response => response.json())
+	    .then(data => {
+	        data.forEach(item => {
+	            const opt = document.createElement("option");
+	            opt.value = item.class_number;
+	            opt.textContent = item.class_number;
+	            cn.appendChild(opt);
+	        });
+	    })
+	    .catch(error => {
+	        console.error("Error fetching class list:", error);
+	    });
+	  
 	  const cn = document.getElementById("class_number");
 	  sc.addEventListener("change", (event) => {
-		  console.log("change");
 		  const cl = [];
-		  console.log(cl);
 		  const params = new URLSearchParams();
 		  params.append("school_code", event.target.value);
 		  fetch("StudentGetClass.action", {
