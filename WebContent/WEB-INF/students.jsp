@@ -11,5 +11,6 @@
 <body>
 <p><a href="student.StudentsRegister.action">学生登録</a></p>
 <p><a href="student.Students.action">学生一覧</a></p>
+<input type="button" value="戻る" onclick="history.back()">
 </body>
 </html>
