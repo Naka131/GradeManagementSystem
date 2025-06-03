@@ -1,29 +1,27 @@
-package student;
-import java.util.ArrayList;
+package grades;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Class;
-import bean.School;
-import dao.SchoolCodeDAO;
+import bean.Grades;
+import dao.GradesDAO;
 import tool.Action;
 
-public class StudentsRegisterAction extends Action {
+public class GradesAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 
+		GradesDAO gDAO = new GradesDAO();
+		List<Grades> gd = gDAO.search();
 
-		SchoolCodeDAO scDAO = new SchoolCodeDAO();
-		List<School> sc = scDAO.search();
-		session.setAttribute("scList",sc);
+		session.setAttribute("gdList",gd);
 
 
-		return "WEB-INF/studentinput.jsp";
+
+		return "WEB-INF/grades_list.jsp";
 	}
-
 }

@@ -1,3 +1,4 @@
+<%@page import="bean.Subjects"%>
 <%@page import="bean.School"%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@page import="bean.Class"%>
@@ -6,15 +7,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>学生登録</title>
+<title>成績登録</title>
 </head>
 
 <body>
 <%
         List<School> scList = (List<School>)session.getAttribute("scList");
+        List<Subjects> sjList = (List<Subjects>)session.getAttribute("sjList");
 %>
-	<h2>学生登録</h2>
-	<form action="input.StudentsOutput.action" method="POST">
+	<h2>成績登録</h2>
+	<form action="input.GradesOutput.action" method="POST">
 		【学籍番号】<br>
 		<input type="text" name="student_id" required maxlength="7"><br><br>
 		【学校コード】<br>
@@ -31,19 +33,31 @@
 		【クラス番号】<br>
 		<select id="class_number"  name="class_number" required>
 		</select><br><br>
-		【氏名】<br>
-        <input type="text" id="text" name="student_name" required><br><br>
-
-		【入学年度】<br>
-        <input type="number" id="text" name="enrollment_year" required oninput="limitLength(this, 4)"><br><br>
-
-		【在籍状況】<br>
-        <select name="is_enrolled">
-			<option value="在籍"selected>在籍</option>
-			<option value="退学">退学 </option>
-			<option value="休学">休学</option>
-			<option value="卒業">卒業</option>
+		
+		【科目名】<br>
+        <select id="subject_code"  name="subject_code" required>
+        <%
+		    for (Subjects sj : sjList) {
+		%>
+		    <option value="<%= sj.getSubject_code()%>"><%= sj.getSubject_name() %></option>
+		<%
+		    }
+		%>
 		</select><br><br>
+
+		【回数】<br>
+		 <select name="attempt_number">
+			<option value="1"selected>1</option>
+			<option value="2">2</option>
+		</select><br><br>
+        
+		【点数】<br>
+		<input type="number" name="score" min="0" max="100" step="1" required
+		  oninput="this.value = 
+		    this.value > 100 ? 100 : 
+		    this.value < 0 ? 0 : this.value">
+		<br><br>
+
 
 		<input type="submit" value="登録"><br><br>
 
