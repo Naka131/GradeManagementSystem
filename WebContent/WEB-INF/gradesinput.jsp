@@ -61,7 +61,7 @@
 
 		<input type="submit" value="登録"><br><br>
 
-		<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
+		<input type="button" value="戻る" onclick="location.href='input.GradesInput.action'">
 	</form>
 	<script>
 	  function limitLength(el, maxLength) {

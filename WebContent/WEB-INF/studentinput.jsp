@@ -16,7 +16,7 @@
 	<h2>学生登録</h2>
 	<form action="input.StudentsOutput.action" method="POST">
 		【学籍番号】<br>
-		<input type="text" name="student_id" required maxlength="7"><br><br>
+		<input type="number" name="student_id" id="student_id" required oninput="limitLength(this, 7)"><br><br>
 		【学校コード】<br>
 		<select id="school_code" name="school_code" required>
 		<%
@@ -47,7 +47,7 @@
 
 		<input type="submit" value="登録"><br><br>
 
-		<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
+		<input type="button" value="戻る" onclick="location.href='input.StudentsInput.action'">
 	</form>
 	<script>
 	  function limitLength(el, maxLength) {
@@ -105,6 +105,12 @@
 		        console.error("Error fetching class list:", error);
 		    });
 		});
+	  
+	  function limitLength(elem, maxLength) {
+	    if (elem.value.length > maxLength) {
+	      elem.value = elem.value.slice(0, maxLength);
+	    }
+	  }
 	</script>
 </body>
 </html>

@@ -1,13 +1,16 @@
-package input;
+package account;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import tool.Action;
 
-public class GradesInputAction extends Action {
-    @Override
+public class LogoutAction extends Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "WEB-INF/grades.jsp"; 
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "WEB-INF/login.jsp";
     }
 }
 
