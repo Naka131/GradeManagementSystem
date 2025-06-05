@@ -20,10 +20,13 @@ public class GradesGetStudentDataAction extends Action {
 
 
 		List<Students> studentList = stDAO.searchdata(student_id);
-
+		
+		
+		
+		
 	    response.setContentType("application/json; charset=UTF-8");
 	    PrintWriter out = response.getWriter();
-
+	    
 	    out.print("[");
 	    for (int i = 0; i < studentList.size(); i++) {
 	        Students st = studentList.get(i);
