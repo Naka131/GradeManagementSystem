@@ -32,6 +32,27 @@ public class SubjectsDAO extends DAO {
 		con.close();
 		return sjList;
 	}
+	public String searchcode(String subject_name)
+			throws Exception {
+		
+		Connection con=getConnection();
+		System.out.println("1");
+		PreparedStatement s;
+		s=con.prepareStatement(
+				"select * from subject where subject_name = ?");
+		s.setString(1, subject_name);
+		ResultSet rs=s.executeQuery();
+		System.out.println("2");
+		String subject_code = "";
+		while(rs.next()){
+			subject_code = rs.getString("subject_code");
+		}
+		System.out.println("3");
+		
+		s.close();
+		con.close();
+		return subject_code;
+	}
 	public void insert(Subjects sj) throws Exception {
 
 		try (Connection con = getConnection();

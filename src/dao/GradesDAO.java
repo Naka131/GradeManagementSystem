@@ -20,7 +20,7 @@ public class GradesDAO extends DAO {
 		s=con.prepareStatement(
 			"select * from exam");
 		ResultSet rs=s.executeQuery();
-		
+
 		while (rs.next()) {
 	        Grades gd = new Grades();
 	        gd.setStudent_id(rs.getString("student_id"));
@@ -31,9 +31,43 @@ public class GradesDAO extends DAO {
 	        gd.setScore(rs.getInt("score"));
 	        gdList.add(gd);
 	    }
-		
+
 		s.close();
 		con.close();
+		return gdList;
+	}
+
+	public List<Grades> keywordsearch(String keyword) throws Exception {
+		List<Grades> gdList = new ArrayList<>();
+
+		System.out.println("1");
+		Connection con = getConnection();
+
+		PreparedStatement s;
+		s = con.prepareStatement(
+				"select * from exam where student_id like ? or school_code like ? or class_number like ? or subject_code like ? or attempt_number like ? or score like ?");
+		s.setString(1, "%" + keyword + "%");
+		s.setString(2, "%" + keyword + "%");
+		s.setString(3, "%" + keyword + "%");
+		s.setString(4, "%" + keyword + "%");
+		s.setString(5, "%" + keyword + "%");
+		s.setString(6, "%" + keyword + "%");
+		ResultSet rs = s.executeQuery();
+
+		while (rs.next()) {
+			Grades gd = new Grades();
+			gd.setStudent_id(rs.getString("student_id"));
+			gd.setSchool_code(rs.getString("school_code"));
+			gd.setClass_number(rs.getString("class_number"));
+			gd.setSubject_code(rs.getString("subject_code"));
+			gd.setAttempt_number(rs.getInt("attempt_number"));
+			gd.setScore(rs.getInt("score"));
+			gdList.add(gd);
+		}
+
+		s.close();
+		con.close();
+
 		return gdList;
 	}
 
@@ -47,15 +81,15 @@ public class GradesDAO extends DAO {
 			"delete from student where student_id=?");
 		st.setString(1, student_id);
 		st.executeUpdate();
-		
-		
+
+
 		st.close();
 		con.close();
 
 		return null;
 	}
-	
-	
+
+
 	public void insert(Grades grades) throws Exception {
         Connection con = getConnection();
 
@@ -72,8 +106,8 @@ public class GradesDAO extends DAO {
         st.close();
         con.close();
     }
-	
-	
+
+
 	public String update(String student_id,String is_enrolled) throws Exception {
 
 		Connection con=getConnection();
@@ -83,8 +117,8 @@ public class GradesDAO extends DAO {
 		st.setString(1, is_enrolled);
 		st.setString(2, student_id);
 		st.executeUpdate();
-		
-		
+
+
 		st.close();
 		con.close();
 

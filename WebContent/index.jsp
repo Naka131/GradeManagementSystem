@@ -9,7 +9,7 @@
     <h1>得点管理システム</h1>
     <p><a href="input.StudentsInput.action">学生管理</a></p>
     <p><a href="grades.GradesRegister.action">成績登録</a></p>
-    <p><a href="#">成績参照</a></p>
+    <p><a href="grades.GradesList.action">成績参照</a></p>
     <p><a href="input.SubjectsInput.action">科目管理</a></p>
 </body>
 </html>

@@ -30,11 +30,11 @@
 		【クラス番号】<br>
 	     <input type="text" id="class_number" name="class_number" readonly>	<br><br>
 		【科目名】<br>
-        <select id="subject_code"  name="subject_code" required>
+        <select id="subject_name"  name="subject_name" required>
         <%
 		    for (Subjects sj : sjList) {
 		%>
-		    <option value="<%= sj.getSubject_code()%>"><%= sj.getSubject_name() %></option>
+		    <option value="<%= sj.getSubject_name()%>"><%= sj.getSubject_name() %></option>
 		<%
 		    }
 		%>
