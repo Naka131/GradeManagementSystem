@@ -24,7 +24,7 @@
 
 		<input type="submit" value="更新"><br><br>
 
-		<input type="button" value="ホームに戻る" onclick="history.back()">
+		<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
 	</form>
 </body>
 </html>
