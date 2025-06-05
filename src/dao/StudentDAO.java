@@ -36,6 +36,34 @@ public class StudentDAO extends DAO {
 		con.close();
 		return stList;
 	}
+	
+	public List<Students> searchdata(String stundet_id)
+			throws Exception {
+		List<Students> stList = new ArrayList<>();
+		
+		Connection con=getConnection();
+		
+		PreparedStatement s;
+		s=con.prepareStatement(
+				"select * from student where student_id=?");
+		s.setString(1, stundet_id);
+		ResultSet rs=s.executeQuery();
+		
+		while (rs.next()) {
+			Students st = new Students();
+			st.setStudent_id(rs.getString("student_id"));
+			st.setSchool_code(rs.getString("school_code"));
+			st.setClass_number(rs.getString("class_number"));
+			st.setStudent_name(rs.getString("student_name"));
+			st.setEnrollment_year(rs.getInt("enrollment_year"));
+			st.setIs_enrolled(rs.getString("is_enrolled"));
+			stList.add(st);
+		}
+		
+		s.close();
+		con.close();
+		return stList;
+	}
 
 
 

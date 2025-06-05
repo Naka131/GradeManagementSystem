@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Grades;
 import dao.GradesDAO;
+import dao.SubjectsDAO;
 import tool.Action;
 
 public class GradesInsertAction extends Action {
@@ -14,9 +15,14 @@ public class GradesInsertAction extends Action {
     		String student_id = request.getParameter("student_id");
             String school_code = request.getParameter("school_code");
             String class_number = request.getParameter("class_number");
-            String subject_code = request.getParameter("subject_code");
+            String subject_name = request.getParameter("subject_name");
             int attempt_number = Integer.parseInt(request.getParameter("attempt_number"));
             int score = Integer.parseInt(request.getParameter("score"));
+            System.out.println(subject_name);
+            
+            SubjectsDAO sjDAO = new SubjectsDAO();
+            String subject_code = sjDAO.searchcode(subject_name);
+            System.out.println(subject_code);
             
             Grades gd = new Grades();
             gd.setStudent_id(student_id);
