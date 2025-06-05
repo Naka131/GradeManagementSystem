@@ -18,12 +18,13 @@
     <table border="1">
         <thead>
             <tr>
-                <th class="sort">学籍番号</th>
-                <th class="sort">学校コード</th>
-                <th class="sort">クラス番号</th>
-                <th class="sort">科目名</th>
-                <th class="sort">回数</th>
-                <th class="sort">点数</th>
+                <th>学籍番号</th>
+                <th>氏名</th>
+                <th>学校コード</th>
+                <th>クラス番号</th>
+                <th>科目名</th>
+                <th>回数</th>
+                <th>点数</th>
             </tr>
         </thead>
         <tbody id="grades">
@@ -32,9 +33,10 @@
             %>
             <tr>
                 <td><%= gr.getStudent_id() %></td>
+                <td><%= gr.getStudent_name() %></td>
                 <td><%= gr.getSchool_code() %></td>
                 <td><%= gr.getClass_number() %></td>
-                <td><%= gr.getSubject_code() %></td>
+                <td><%= gr.getSubject_name() %></td>
                 <td><%= gr.getAttempt_number() %></td>
                 <td><%= gr.getScore() %></td>
             </tr>
@@ -52,19 +54,6 @@
     %>
     <a href="index.jsp">ホームへ</a>
 <script>
-	const gbl = document.getElementsByClassName("gbutton");
-	for (gb of gbl){
-		gb.addEventListener("click", (event) => {
-		console.log(event.target.textContent);
-	})
-	}
-	
-	
-	
-	
-	
-	
-	
     const sc = document.getElementById("searchword");
     const grades = document.getElementById("grades");
 	sc.addEventListener("change", (event) => {
@@ -85,9 +74,10 @@
 		      data.forEach(item => {
 	            cl.push(`<tr>
 	                <td>\${item.student_id}</td>
+	                <td>\${item.student_name}</td>
 	                <td>\${item.school_code}</td>
 	                <td>\${item.class_number}</td>
-	                <td>\${item.subject_code}</td>
+	                <td>\${item.subject_name}</td>
 	                <td>\${item.attempt_number}</td>
 	                <td>\${item.score}</td>
 	            </tr>`)
@@ -97,7 +87,7 @@
 		  .catch(error => {
 		      console.error("Error fetching class list:", error);
 		  });
-		
+
 	})
 </script>
 </body>
