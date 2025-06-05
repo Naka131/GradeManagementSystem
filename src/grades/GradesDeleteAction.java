@@ -1,19 +1,20 @@
-package student;
+package grades;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.StudentDAO;
+import dao.GradesDAO;
 import tool.Action;
 
-public class StudentDeleteAction extends Action {
+public class GradesDeleteAction extends Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String student_id=request.getParameter("student_id");
+		String subject_code=request.getParameter("subject_code");
+		int attempt_number=Integer.parseInt(request.getParameter("attempt_number"));
 		if (student_id==null) student_id="";
 
-		StudentDAO bdao=new StudentDAO();
-		bdao.grades_delete(student_id);
-		bdao.delete(student_id);
+		GradesDAO gdao=new GradesDAO();
+		gdao.delete(student_id,subject_code,attempt_number);
 
 		return "WEB-INF/delete_success.jsp";
     }

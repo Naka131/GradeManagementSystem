@@ -7,7 +7,7 @@ import tool.Action;
 
 public class SubjectUpdateAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+	try {
 		String update_subject_code = request.getParameter("update_subject_code");
 		String subject_name = request.getParameter("subject_name");
 		String subject_code = request.getParameter("subject_code");
@@ -19,5 +19,8 @@ public class SubjectUpdateAction extends Action {
 		sjDAO.update(update_subject_code, subject_name, subject_code);
 
 		return "WEB-INF/update_success.jsp";
+	} catch (Exception e) {
+		return "WEB-INF/error.jsp";
+	}
 	}
 }

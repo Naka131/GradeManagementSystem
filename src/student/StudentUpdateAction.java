@@ -7,7 +7,8 @@ import tool.Action;
 
 public class StudentUpdateAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+	try {
+		
 		String student_id = request.getParameter("student_id");
 		String is_enrolled = request.getParameter("is_enrolled");
 		if (student_id == null)
@@ -17,5 +18,8 @@ public class StudentUpdateAction extends Action {
 		uDAO.update(student_id, is_enrolled);
 
 		return "WEB-INF/update_success.jsp";
+	} catch (Exception e) {
+		return "WEB-INF/error.jsp";
+	}
 	}
 }

@@ -83,6 +83,22 @@ public class StudentDAO extends DAO {
 		return null;
 	}
 	
+	public String grades_delete(String student_id) throws Exception {
+		
+		Connection con=getConnection();
+		
+		PreparedStatement st=con.prepareStatement(
+				"delete from exam where student_id=?");
+		st.setString(1, student_id);
+		st.executeUpdate();
+		
+		
+		st.close();
+		con.close();
+		
+		return null;
+	}
+	
 	
 	public void insert(Students student) throws Exception {
         Connection con = getConnection();

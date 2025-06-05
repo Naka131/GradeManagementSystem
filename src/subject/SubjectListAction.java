@@ -9,7 +9,7 @@ import bean.Subjects;
 import dao.SubjectsDAO;
 import tool.Action;
 
-public class SubjectsListAction extends Action {
+public class SubjectListAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
