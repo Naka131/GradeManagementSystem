@@ -4,10 +4,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class GradesInputAction extends Action {
+public class RegisterInputAction extends Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "WEB-INF/grades.jsp"; 
+        return "WEB-INF/register.jsp"; 
     }
 }
 

@@ -1,15 +1,27 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>得点管理システム</title>
+<meta charset="UTF-8">
+<title>トップページ</title>
 </head>
 <body>
-    <h1>得点管理システム</h1>
-    <p><a href="input.StudentsInput.action">学生管理</a></p>
-    <p><a href="grades.GradesRegister.action">成績登録</a></p>
-    <p><a href="grades.GradesList.action">成績参照</a></p>
-    <p><a href="input.SubjectsInput.action">科目管理</a></p>
+<c:choose>
+<c:when test="${account.access_level == 1 }">
+<p><a href="input.StudentsInput.action">学生管理</a></p>
+<p><a href="input.GradesInput.action">成績管理</a></p>
+<p><a href="input.SubjectsInput.action">科目管理</a></p>
+<p><a href="input.RegisterInput.action">ユーザー登録</a></p>
+<p><a href="account.Logout.action"><button type="button" >ログアウト</button></a></p>
+</c:when>
+<c:when test="${account.access_level == 2 }">
+<p><a href="input.StudentsInput.action">学生管理</a></p>
+<p><a href="input.GradesInput.action">成績管理</a></p>
+<p><a href="input.SubjectsInput.action">科目管理</a></p>
+<p><a href="account.Logout.action"><button type="button" >ログアウト</button></a></p>
+</c:when>
+</c:choose>
 </body>
 </html>
