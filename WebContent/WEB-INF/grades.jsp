@@ -9,7 +9,7 @@
 </head>
 <body>
 <p><a href="grades.GradesRegister.action">成績登録</a></p>
-<p><a href="#">成績参照</a></p>
-<input type="button" value="戻る" onclick="history.back()">
+<p><a href="grades.GradesList.action">成績参照</a></p>
+<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
 </body>
 </html>

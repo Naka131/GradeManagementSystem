@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 
 import bean.Grades;
 import bean.School;
+import bean.Subjects;
 import dao.GradesDAO;
 import dao.SchoolCodeDAO;
+import dao.SubjectsDAO;
 import tool.Action;
 
 public class GradesListAction extends Action {
@@ -22,7 +24,11 @@ public class GradesListAction extends Action {
 		
 		GradesDAO grDAO = new GradesDAO();
 		List<Grades> gr = grDAO.search();
+		
+		SubjectsDAO sjDAO = new SubjectsDAO();
+		List<Subjects> sj = sjDAO.search();
 
+		session.setAttribute("sjList",sj);
 		session.setAttribute("scList",sc);
 		session.setAttribute("grList",gr);
 

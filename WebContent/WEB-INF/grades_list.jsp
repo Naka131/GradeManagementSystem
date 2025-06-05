@@ -3,6 +3,7 @@
 <%@page import="bean.Students"%>
 <%@ page import="java.util.*, bean.Students" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>成績参照</title>
@@ -37,6 +38,22 @@
                 <td><%= gr.getSubject_code() %></td>
                 <td><%= gr.getAttempt_number() %></td>
                 <td><%= gr.getScore() %></td>
+                <c:if test="${account.access_level == 1}">
+                            <td>
+                                <form method="post" action="grades.GradesDelete.action" style="display:inline;">
+                                    <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
+                                    <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
+                                    <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
+                                    <input type="submit" value="削除" />
+                                </form>
+                                <form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
+                                    <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
+                                    <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
+                                    <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
+                                    <input type="submit" value="更新" />
+                                </form>
+                                </td>
+                            </c:if>
             </tr>
             <%
                 }
@@ -52,19 +69,6 @@
     %>
     <a href="index.jsp">ホームへ</a>
 <script>
-	const gbl = document.getElementsByClassName("gbutton");
-	for (gb of gbl){
-		gb.addEventListener("click", (event) => {
-		console.log(event.target.textContent);
-	})
-	}
-	
-	
-	
-	
-	
-	
-	
     const sc = document.getElementById("searchword");
     const grades = document.getElementById("grades");
 	sc.addEventListener("change", (event) => {
