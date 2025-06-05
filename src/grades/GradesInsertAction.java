@@ -31,7 +31,7 @@ public class GradesInsertAction extends Action {
             GradesDAO gDAO = new GradesDAO();
             gDAO.insert(gd);
             
-            return "WEB-INF/success.jsp";
+            return "WEB-INF/grades_success.jsp";
             
 		} catch (Exception e) {
 			System.err.println(e);

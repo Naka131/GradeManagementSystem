@@ -8,5 +8,6 @@
 <body>
     <h1>登録できました！</h1>
     <p><a href="index.jsp">トップページに戻る</a></p>
+    <p><a href="grades.GradesRegister.action">再登録</a></p>
 </body>
 </html>

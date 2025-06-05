@@ -30,7 +30,7 @@ public class StudentInsertAction extends Action {
             StudentDAO sDAO = new StudentDAO();
             sDAO.insert(st);
             
-            return "WEB-INF/success.jsp";
+            return "WEB-INF/students_success.jsp";
             
 		} catch (Exception e) {
 			System.err.println(e);

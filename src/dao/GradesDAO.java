@@ -80,13 +80,15 @@ public class GradesDAO extends DAO {
 
 
 
-	public String delete(String student_id) throws Exception {
+	public String delete(String student_id,String subject_code,int attempt_number) throws Exception {
 
 		Connection con=getConnection();
 
 		PreparedStatement st=con.prepareStatement(
-			"delete from student where student_id=?");
+			"delete from exam where student_id=? and subject_code=? and attempt_number=?");
 		st.setString(1, student_id);
+		st.setString(2, subject_code);
+		st.setInt(3, attempt_number);
 		st.executeUpdate();
 
 
@@ -115,14 +117,18 @@ public class GradesDAO extends DAO {
     }
 
 
-	public String update(String student_id,String is_enrolled) throws Exception {
+	public String update(int update_score,int update_attempt_number,String upadte_subject_code,String student_id,String subject_code,int attempt_number) throws Exception {
 
 		Connection con=getConnection();
 
 		PreparedStatement st=con.prepareStatement(
-			"UPDATE student SET is_enrolled = ? WHERE student_id = ?");
-		st.setString(1, is_enrolled);
-		st.setString(2, student_id);
+			"UPDATE exam SET subject_code=?, attempt_number=?, score=? WHERE student_id=? and subject_code=? and attempt_number=?");
+		st.setString(1, upadte_subject_code);
+		st.setInt(2, update_attempt_number);
+		st.setInt(3, update_score);
+		st.setString(4, student_id);
+		st.setString(5, subject_code);
+		st.setInt(6, attempt_number);
 		st.executeUpdate();
 
 

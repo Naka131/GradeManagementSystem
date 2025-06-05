@@ -23,7 +23,7 @@ public class SubjectInsertAction extends Action {
             SubjectsDAO sjDAO = new SubjectsDAO();
             sjDAO.insert(sj);
 
-            return "WEB-INF/success.jsp";
+            return "WEB-INF/subject_success.jsp";
 
 		} catch (Exception e) {
 			System.out.println(e);

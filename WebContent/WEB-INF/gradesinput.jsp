@@ -25,7 +25,7 @@
 		<% } %>
 		</datalist>
 		<br><br>
-		【学校コード】<br>
+		【学校コード】<br>	
 	     <input type="text" id="school_code" name="school_code" readonly>	<br><br>
 		【クラス番号】<br>
 	     <input type="text" id="class_number" name="class_number" readonly>	<br><br>
