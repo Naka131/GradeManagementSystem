@@ -12,7 +12,6 @@ public class StudentDeleteAction extends Action {
 		if (student_id==null) student_id="";
 
 		StudentDAO bdao=new StudentDAO();
-		bdao.grades_delete(student_id);
 		bdao.delete(student_id);
 
 		return "WEB-INF/delete_success.jsp";
