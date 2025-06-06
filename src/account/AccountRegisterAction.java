@@ -24,6 +24,7 @@ public class AccountRegisterAction extends Action {
 
         AccountRegisterDAO aDao = new AccountRegisterDAO();
         aDao.registerAccount(ab);
+        
 
         return "WEB-INF/registerSuccess.jsp";
     }

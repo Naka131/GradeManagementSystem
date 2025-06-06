@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="bean.School"%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@page import="bean.Class"%>
+<%@ page import="java.util.*, bean.Students" %>
+<%
+        List<School> scList = (List<School>)session.getAttribute("scList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +20,20 @@
 <label><input type="radio" name="access_level" value="1">管理者で登録する</label>
 <label><input type="radio" name="access_level" value="2" checked>ユーザーで登録する</label>
 </p>
-　　　名前：<input type="text" name="teacher_name" required><br>
-ユーザーID：<input type="text" name="teacher_id" required><br>
-パスワード：<input type="password" name="password" required><br>
-学校コード：<input type="text" name="school_code" required><br>
+<label>&emsp;&emsp;&emsp;【名前】: <input type="text" name="teacher_name" required></label><br>
+<label>【ユーザーID】: <input type="text" name="teacher_id" required></label><br>
+<label>【パスワード】: <input type="password" name="password" required></label><br>
+<label>【学校コード】:
+    <select id="school_code" name="school_code" required>
+        <%
+            for (School sc : scList) {
+        %>
+            <option value="<%= sc.getSchool_code() %>"><%= sc.getSchool_code() %></option>
+        <%
+            }
+        %>
+    </select>
+</label><br>
 <input type="submit" value="登録"><br>
 <input type="button" value="戻る" onclick="location.href='input.RegisterInput.action'">
 </form>
