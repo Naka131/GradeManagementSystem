@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<%@ include file="../header.html" %>
 <%
         List<School> scList = (List<School>)session.getAttribute("scList");
 %>

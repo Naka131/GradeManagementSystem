@@ -17,6 +17,7 @@
     List<Subjects> sjList = (List<Subjects>)session.getAttribute("sjList");
     %>
 <body>
+<%@ include file="../header.html" %>
 	<h2>更新</h2>
 	<form action="grades.GradesUpdate.action" method="POST">
 		<input type="hidden" name="subject_code" value="<%= subject_code %>" />

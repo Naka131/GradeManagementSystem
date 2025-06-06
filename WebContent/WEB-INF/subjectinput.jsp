@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<%@ include file="../header.html" %>
 	<h2>科目登録</h2>
 	<form action="input.SubjectOutput.action" method="POST">
 		【科目コード】<br>
@@ -16,7 +17,7 @@
 
 		<input type="submit" value="送信"><br><br>
 
-		<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
+		 <input type="button" value="戻る" onclick="location.href='input.SubjectInput.action'">
 	</form>
 </body>
 

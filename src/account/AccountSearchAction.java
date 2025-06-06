@@ -23,7 +23,7 @@ public class AccountSearchAction extends Action {
         if (result != null) {
             HttpSession session = request.getSession();
             session.setAttribute("account", result);
-            return "WEB-INF/loginSuccess.jsp";
+            return "index.jsp";
         } else {
             return "WEB-INF/error.jsp";
         }

@@ -1,23 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>新規登録</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>成績管理</title>
 </head>
 <body>
-<form action="account.AccountRegister.action" method="post">
-<p>すべて入力してください</p>
-<p>
-<label><input type="radio" name="access_level" value="1">管理者で登録する</label>
-<label><input type="radio" name="access_level" value="2" checked>ユーザーで登録する</label>
-</p>
-　　　名前：<input type="text" name="teacher_name" required><br>
-ユーザーID：<input type="text" name="teacher_id" required><br>
-パスワード：<input type="password" name="password" required><br>
-<input type="submit" value="登録"><br>
-<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
-</form>
+<%@ include file="../header.html" %>
+<p><a href="input.AccountRegisterInput.action">アカウント登録</a></p>
+<p><a href="#">アカウント一覧</a></p>
 </body>
 </html>
