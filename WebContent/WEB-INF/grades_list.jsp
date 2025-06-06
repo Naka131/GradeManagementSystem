@@ -51,7 +51,7 @@
 			<option value="1">1</option>
 			<option value="2">2</option>
 		</select><br>
-    【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索">
+    【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索"><button id="reset">リセット</button>
     <table border="1">
         <thead>
             <tr>
@@ -107,6 +107,7 @@
         }
     %>
 <script>
+	const resetButton = document.getElementById("reset");
     const si = document.getElementById("student_id");
     const ssc = document.getElementById("searchschool");
     const cn = document.getElementById("class_number");
@@ -157,6 +158,15 @@
 		})
 	}
 
+	reset.addEventListener("click", () => {
+		si.value = "";
+		ssc.options[0].selected = true;
+		sj.options[0].selected = true;
+		an.options[0].selected = true;
+		sn.value = "";
+		ssc.dispatchEvent(new Event('change', { bubbles: true }));
+
+	})
 
 	function GradesSearch() {
 		const params = new URLSearchParams();
