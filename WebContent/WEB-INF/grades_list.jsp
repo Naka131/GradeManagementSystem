@@ -9,7 +9,7 @@
     <title>成績参照</title>
 </head>
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
     <h1>成績一覧</h1>
     <%
         List<School> scList = (List<School>)session.getAttribute("scList");

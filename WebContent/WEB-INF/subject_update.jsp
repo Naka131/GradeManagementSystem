@@ -14,7 +14,7 @@
     String subject_name = request.getParameter("subject_name");
     %>
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
 	<h2>更新</h2>
 	<form action="subject.SubjectUpdate.action" method="POST">
 		<input type="hidden" name="subject_code" value="<%= subject_code %>" />

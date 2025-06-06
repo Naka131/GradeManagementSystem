@@ -8,7 +8,7 @@
 <title>成績管理</title>
 </head>
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
 <p><a href="input.AccountRegisterInput.action">アカウント登録</a></p>
 <p><a href="#">アカウント一覧</a></p>
 </body>

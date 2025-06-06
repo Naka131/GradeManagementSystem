@@ -16,6 +16,7 @@
 　　　名前：<input type="text" name="teacher_name" required><br>
 ユーザーID：<input type="text" name="teacher_id" required><br>
 パスワード：<input type="password" name="password" required><br>
+学校コード：<input type="text" name="school_code" required><br>
 <input type="submit" value="登録"><br>
 <input type="button" value="戻る" onclick="location.href='input.RegisterInput.action'">
 </form>

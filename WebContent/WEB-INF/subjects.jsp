@@ -10,7 +10,7 @@
     <title>科目管理</title>
 </head>
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
 <c:choose>
 <c:when test="${account.access_level == 1 }">
 <p><a href="subject.SubjectRegister.action">科目登録</a></p>
