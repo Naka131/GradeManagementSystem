@@ -18,7 +18,7 @@ public class GradesDAO extends DAO {
 
 		PreparedStatement s;
 		s=con.prepareStatement(
-			"select e.student_id, st.student_name, e.school_code, e.class_number, s.subject_name, e.attempt_number, e.score from exam e left join subject  s on e.subject_code = s.subject_code left join student st on e.student_id = st.student_id");
+			"select e.student_id, st.student_name, e.school_code, e.class_number, e.subject_name, e.subject_code, e.attempt_number, e.score from exam e left join student st on e.student_id = st.student_id");
 		ResultSet rs=s.executeQuery();
 
 		while (rs.next()) {
@@ -27,6 +27,7 @@ public class GradesDAO extends DAO {
 	        gd.setStudent_name(rs.getString("student_name"));
 	        gd.setSchool_code(rs.getString("school_code"));
 	        gd.setClass_number(rs.getString("class_number"));
+	        gd.setSubject_code(rs.getString("subject_code"));
 	        gd.setSubject_name(rs.getString("subject_name"));
 	        gd.setAttempt_number(rs.getInt("attempt_number"));
 	        gd.setScore(rs.getInt("score"));
@@ -46,11 +47,11 @@ public class GradesDAO extends DAO {
 		PreparedStatement s;
 		s = con.prepareStatement(
 				"select e.student_id, st.student_name, e.school_code, "
-				+ "e.class_number, s.subject_name, e.attempt_number, e.score "
-				+ "from exam e left join subject  s on e.subject_code = s.subject_"
-				+ "code left join student st on e.student_id = st.student_id where "
+				+ "e.class_number, e.subject_name, e.subject_code, e.attempt_number, e.score "
+				+ "from exam e "
+				+ "left join student st on e.student_id = st.student_id where "
 				+ "e.student_id like ? or e.school_code like ? or e.class_number "
-				+ "like ? or s.subject_code like ? or attempt_number like ? or "
+				+ "like ? or subject_code like ? or subject_name like ? or attempt_number like ? or "
 				+ "score like ?");
 		s.setString(1, "%" + keyword + "%");
 		s.setString(2, "%" + keyword + "%");
@@ -58,6 +59,7 @@ public class GradesDAO extends DAO {
 		s.setString(4, "%" + keyword + "%");
 		s.setString(5, "%" + keyword + "%");
 		s.setString(6, "%" + keyword + "%");
+		s.setString(7, "%" + keyword + "%");
 		ResultSet rs = s.executeQuery();
 
 		while (rs.next()) {
@@ -66,6 +68,7 @@ public class GradesDAO extends DAO {
 			gd.setStudent_name(rs.getString("student_name"));
 			gd.setSchool_code(rs.getString("school_code"));
 			gd.setClass_number(rs.getString("class_number"));
+			gd.setSubject_code(rs.getString("subject_code"));
 			gd.setSubject_name(rs.getString("subject_name"));
 			gd.setAttempt_number(rs.getInt("attempt_number"));
 			gd.setScore(rs.getInt("score"));
@@ -103,13 +106,14 @@ public class GradesDAO extends DAO {
         Connection con = getConnection();
 
         PreparedStatement st = con.prepareStatement(
-        		"INSERT INTO exam (student_id, school_code, class_number,subject_code, attempt_number, score) VALUES (?, ?, ?, (select subject_code from subject where subject_name = ?), ?, ?)");
+        		"INSERT INTO exam (student_id, school_code, class_number,subject_code, subject_name, attempt_number, score) VALUES (?, ?, ?, (select subject_code from subject where subject_name = ?), ?, ?, ?)");
         st.setString(1, grades.getStudent_id());
         st.setString(2, grades.getSchool_code());
         st.setString(3, grades.getClass_number());
         st.setString(4, grades.getSubject_name());
-        st.setInt(5, grades.getAttempt_number());
-        st.setInt(6, grades.getScore());
+        st.setString(5, grades.getSubject_name());
+        st.setInt(6, grades.getAttempt_number());
+        st.setInt(7, grades.getScore());
         st.executeUpdate();
 
         st.close();
