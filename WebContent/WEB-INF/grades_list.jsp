@@ -1,3 +1,4 @@
+<%@page import="bean.Subjects"%>
 <%@page import="bean.School"%>
 <%@page import="bean.Grades"%>
 <%@page import="bean.Students"%>
@@ -13,9 +14,43 @@
     <%
         List<School> scList = (List<School>)session.getAttribute("scList");
         List<Grades> grList = (List<Grades>)session.getAttribute("grList");
+        List<Subjects> sjList = (List<Subjects>)session.getAttribute("sjList");
         if (grList != null && !grList.isEmpty()) {
     %>
-    <input type="text" id="searchword" placeholder="検索">
+    【学籍番号検索】<input type="text" id="student_id" class="searchword" placeholder="学籍番号検索"><br>
+    【学校コード】
+    <select id="searchschool" name="searchschool">
+    	<option value="">選択してください</option>
+    	<%
+		    for (School sc : scList) {
+		%>
+		    <option value="<%= sc.getSchool_code() %>"><%= sc.getSchool_code() %></option>
+		<%
+		    }
+		%>
+    </select><br>
+    【クラス番号】
+	<select id="class_number"  class="search" name="class_number">
+		<option value="">学校コードを選択してください</option>
+	</select><br>
+	【科目名】
+        <select id="subject_name"  name="subject_name"  class="search">
+        	<option value="">選択してください</option>
+        <%
+		    for (Subjects sj : sjList) {
+		%>
+		    <option value="<%= sj.getSubject_name()%>"><%= sj.getSubject_name() %></option>
+		<%
+		    }
+		%>
+		</select><br>
+	【回数】
+		 <select id="attempt_number" name="attempt_number" class="search">
+		 	<option value="">選択してください</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</select><br>
+    【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索">
     <table border="1">
         <thead>
             <tr>
@@ -71,41 +106,93 @@
     %>
     <a href="index.jsp">ホームへ</a>
 <script>
-    const sc = document.getElementById("searchword");
+    const si = document.getElementById("student_id");
+    const ssc = document.getElementById("searchschool");
+    const cn = document.getElementById("class_number");
+    const sj = document.getElementById("subject_name");
+    const an = document.getElementById("attempt_number");
+    const sn = document.getElementById("searchname");
     const grades = document.getElementById("grades");
-	sc.addEventListener("change", (event) => {
+		ssc.addEventListener("change", async function () {
+		const params = new URLSearchParams();
+		params.append("school_code", ssc.value);
+		await fetch("student.StudentGetClass.action", {
+		        method: 'POST',
+		        headers: {
+		            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+		        },
+		        body: params.toString()
+		    })
+		    .then(response => response.json())
+		    .then(data => {
+		        cn.innerHTML = "";
+	            const opt = document.createElement("option");
+	            opt.value = "";
+	            opt.textContent = "選択してください";
+	            cn.appendChild(opt);
+		        data.forEach(item => {
+	            	const opt = document.createElement("option");
+		            opt.value = item.class_number;
+		            opt.textContent = item.class_number;
+		            cn.appendChild(opt);
+		        });
+		    })
+		    .catch(error => {
+		        console.error("Error fetching class list:", error);
+		    });
+			GradesSearch();
+	})
+	const search = document.getElementsByClassName("search");
+	for (se of search) {
+		se.addEventListener("change", () => {
+			GradesSearch();
+		})
+	}
+
+	const searchword = document.getElementsByClassName("searchword");
+	for (sw of searchword) {
+		sw.addEventListener("change", () => {
+			GradesSearch();
+		})
+	}
+
+
+	function GradesSearch() {
 		const params = new URLSearchParams();
 		const cl =[];
-		params.append("keyword", event.target.value);
-		fetch("grades.GradesSearch.action", {
-		      method: 'POST',
-		      headers: {
-		          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-		      },
-		      body: params.toString()
-		  })
-		  .then(response => response.json())
-		  .then(data => {
-			  grades.innerHTML = "";
-			  console.log("a")
-		      data.forEach(item => {
-	            cl.push(`<tr>
-	                <td>\${item.student_id}</td>
-	                <td>\${item.student_name}</td>
-	                <td>\${item.school_code}</td>
-	                <td>\${item.class_number}</td>
-	                <td>\${item.subject_name}</td>
-	                <td>\${item.attempt_number}</td>
-	                <td>\${item.score}</td>
-	            </tr>`)
-		      });
-			  grades.innerHTML = cl.join("");
-		  })
-		  .catch(error => {
-		      console.error("Error fetching class list:", error);
-		  });
-
-	})
+		params.append("student_id", si.value);
+		params.append("school_code", ssc.value);
+		params.append("class_number", cn.value);
+		params.append("subject_name", sj.value);
+		params.append("attempt_number", an.value);
+		params.append("student_name", sn.value);
+			fetch("grades.GradesSearch.action", {
+			      method: 'POST',
+			      headers: {
+			          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			      },
+			      body: params.toString()
+			  })
+			  .then(response => response.json())
+			  .then(data => {
+				  grades.innerHTML = "";
+			      data.forEach(item => {
+		            cl.push(`<tr>
+		                <td>\${item.student_id}</td>
+		                <td>\${item.student_name}</td>
+		                <td>\${item.school_code}</td>
+		                <td>\${item.class_number}</td>
+		                <td>\${item.subject_name}</td>
+		                <td>\${item.attempt_number}</td>
+		                <td>\${item.score}</td>
+		            </tr>`)
+			      });
+				  grades.innerHTML = cl.join("");
+			  })
+			  .catch(error => {
+			      console.error("Error fetching class list:", error);
+			  });
+	}
 </script>
 </body>
 </html>

@@ -39,7 +39,7 @@ public class GradesDAO extends DAO {
 		return gdList;
 	}
 
-	public List<Grades> keywordsearch(String keyword) throws Exception {
+	public List<Grades> keywordsearch(String student_id,String school_code,String class_number,String subject_name,String attempt_number,String student_name) throws Exception {
 		List<Grades> gdList = new ArrayList<>();
 
 		Connection con = getConnection();
@@ -50,16 +50,14 @@ public class GradesDAO extends DAO {
 				+ "e.class_number, e.subject_name, e.subject_code, e.attempt_number, e.score "
 				+ "from exam e "
 				+ "left join student st on e.student_id = st.student_id where "
-				+ "e.student_id like ? or e.school_code like ? or e.class_number "
-				+ "like ? or subject_code like ? or subject_name like ? or attempt_number like ? or "
-				+ "score like ?");
-		s.setString(1, "%" + keyword + "%");
-		s.setString(2, "%" + keyword + "%");
-		s.setString(3, "%" + keyword + "%");
-		s.setString(4, "%" + keyword + "%");
-		s.setString(5, "%" + keyword + "%");
-		s.setString(6, "%" + keyword + "%");
-		s.setString(7, "%" + keyword + "%");
+				+ "e.student_id like ? and e.school_code like ? and e.class_number "
+				+ "like ? and subject_name like ? and attempt_number like ? and st.student_name like ?");
+		s.setString(1, "%" + student_id + "%");
+		s.setString(2, "%" + school_code + "%");
+		s.setString(3, "%" + class_number + "%");
+		s.setString(4, "%" + subject_name + "%");
+		s.setString(5, "%" + attempt_number + "%");
+		s.setString(6, "%" + student_name + "%");
 		ResultSet rs = s.executeQuery();
 
 		while (rs.next()) {
