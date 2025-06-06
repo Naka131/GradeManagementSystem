@@ -185,6 +185,22 @@
 		                <td>\${item.subject_name}</td>
 		                <td>\${item.attempt_number}</td>
 		                <td>\${item.score}</td>
+		                <c:if test="${account.access_level == 1}">
+                        <td>
+                            <form method="post" action="grades.GradesDelete.action" style="display:inline;">
+                                <input type="hidden" name="student_id" value="\${item.student_id}" />
+                                <input type="hidden" name="subject_code" value="\${item.subject_code}" />
+                                <input type="hidden" name="attempt_number" value="\${item.attempt_number}" />
+                                <input type="submit" value="削除" />
+                            </form>
+                            <form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
+                                <input type="hidden" name="student_id" value="\${item.student_id}" />
+                                <input type="hidden" name="subject_code" value="\${item.subject_code}" />
+                                <input type="hidden" name="attempt_number" value="\${item.attempt_number}" />
+                                <input type="submit" value="更新" />
+                            </form>
+                            </td>
+                        </c:if>
 		            </tr>`)
 			      });
 				  grades.innerHTML = cl.join("");
