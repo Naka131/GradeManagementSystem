@@ -48,7 +48,7 @@
                                     <input type="hidden" name="student_id" value="${st.student_id}" />
                                     <input type="submit" value="削除" />
                                 </form>
-                                <form method="post" action="input.UpdateInput.action" style="display:inline;">
+                                <form method="post" action="input.StudentUpdateInput.action" style="display:inline;">
                                     <input type="hidden" name="student_id" value="${st.student_id}" />
                                     <input type="submit" value="更新" />
                                 </form>

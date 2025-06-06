@@ -11,7 +11,6 @@ public class GradesDeleteAction extends Action {
 		String student_id=request.getParameter("student_id");
 		String subject_code=request.getParameter("subject_code");
 		int attempt_number=Integer.parseInt(request.getParameter("attempt_number"));
-		if (student_id==null) student_id="";
 
 		GradesDAO gdao=new GradesDAO();
 		gdao.delete(student_id,subject_code,attempt_number);

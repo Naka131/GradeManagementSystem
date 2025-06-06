@@ -18,7 +18,7 @@ public class StudentDAO extends DAO {
 
 		PreparedStatement s;
 		s=con.prepareStatement(
-			"select * from student");
+			"select * from student order by student_id asc");
 		ResultSet rs=s.executeQuery();
 		
 		while (rs.next()) {

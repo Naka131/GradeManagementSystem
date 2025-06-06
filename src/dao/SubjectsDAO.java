@@ -18,7 +18,7 @@ public class SubjectsDAO extends DAO {
 
 		PreparedStatement s;
 		s=con.prepareStatement(
-			"select * from subject");
+			"select * from subject order by subject_code asc");
 		ResultSet rs=s.executeQuery();
 
 		while (rs.next()) {
