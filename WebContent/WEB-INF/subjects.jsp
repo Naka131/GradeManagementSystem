@@ -10,6 +10,7 @@
     <title>科目管理</title>
 </head>
 <body>
+<%@ include file="../header.html" %>
 <c:choose>
 <c:when test="${account.access_level == 1 }">
 <p><a href="subject.SubjectRegister.action">科目登録</a></p>
@@ -19,6 +20,5 @@
 <p><a href="subject.SubjectList.action">科目一覧</a></p>
 </c:when>
 </c:choose>
-<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
 </body>
 </html>

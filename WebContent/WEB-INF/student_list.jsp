@@ -19,7 +19,8 @@
     <title>学生情報</title>
 </head>
 <body>
-    <h1>一覧</h1>
+<%@ include file="../header.html" %>
+    <h1>学生一覧</h1>
 
     <c:if test="${not empty stList}">
         <table border="1">

@@ -9,7 +9,8 @@
     <title>成績参照</title>
 </head>
 <body>
-    <h1>一覧</h1>
+<%@ include file="../header.html" %>
+    <h1>成績一覧</h1>
     <%
         List<School> scList = (List<School>)session.getAttribute("scList");
         List<Grades> grList = (List<Grades>)session.getAttribute("grList");
@@ -66,10 +67,10 @@
         } else{
      %>
      <p>登録されていません</p>
+      <input type="button" value="戻る" onclick="location.href='input.GradesInput.action'">
      <%
         }
     %>
-    <a href="index.jsp">ホームへ</a>
 <script>
     const sc = document.getElementById("searchword");
     const grades = document.getElementById("grades");

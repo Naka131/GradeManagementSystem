@@ -17,7 +17,8 @@
     <title>科目一覧</title>
 </head>
 <body>
-    <h1>一覧</h1>
+<%@ include file="../header.html" %>
+    <h1>科目一覧</h1>
 
     <c:if test="${not empty sjList}">
         <table border="1">
@@ -55,6 +56,6 @@
         <p>登録されていません</p>
     </c:if>
 
-    <input type="button" value="戻る" onclick="location.href='input.StudentsInput.action'">
+    <input type="button" value="戻る" onclick="location.href='input.SubjectInput.action'">
 </body>
 </html>

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<%@ include file="../header.html" %>
 <%
         List<Students> stList = (List<Students>)session.getAttribute("stList");
         List<Subjects> sjList = (List<Subjects>)session.getAttribute("sjList");
