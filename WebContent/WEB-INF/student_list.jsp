@@ -5,13 +5,6 @@
 
 <%
     List<Students> stList = (List<Students>) session.getAttribute("stList");
-    bean.Account account = (bean.Account) session.getAttribute("account");
-    if (stList != null) {
-        pageContext.setAttribute("stList", stList);
-    }
-    if (account != null) {
-        pageContext.setAttribute("account", account);
-    }
 %>
 
 <html>
@@ -19,7 +12,7 @@
     <title>学生情報</title>
 </head>
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
     <h1>学生一覧</h1>
 
     <c:if test="${not empty stList}">

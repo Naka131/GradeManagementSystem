@@ -5,11 +5,6 @@
 
 <%
     List<Subjects> sjList = (List<Subjects>) session.getAttribute("sjList");
-    // JSTLで使うためにaccountをpageスコープに設定
-    bean.Account account = (bean.Account) session.getAttribute("account");
-    if (account != null) {
-        pageContext.setAttribute("account", account);
-    }
 %>
 
 <html>
@@ -17,7 +12,7 @@
     <title>科目一覧</title>
 </head>
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
     <h1>科目一覧</h1>
 
     <c:if test="${not empty sjList}">

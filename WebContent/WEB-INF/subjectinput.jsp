@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<%@ include file="../header.html" %>
+<%@ include file="../header.jsp" %>
 	<h2>科目登録</h2>
 	<form action="input.SubjectOutput.action" method="POST">
 		【科目コード】<br>
