@@ -26,6 +26,8 @@
 		<% } %>
 		</datalist>
 		<br><br>
+		【氏名】<br>	
+	     <input type="text" id="student_name" name="student_name" readonly>	<br><br>
 		【学校コード】<br>	
 	     <input type="text" id="school_code" name="school_code" readonly>	<br><br>
 		【クラス番号】<br>
@@ -67,6 +69,7 @@
 	  }
 	  
 	  const st = document.getElementById("student_id");
+	  const sn = document.getElementById("student_name");
 	  const sc = document.getElementById("school_code");
 	  const cn = document.getElementById("class_number");
 	  st.addEventListener("blur", (event) => {
@@ -82,6 +85,7 @@
 		    .then(response => response.json())
 		    .then(data => {
 		        data.forEach(item => {
+		        	sn.value = item.student_name;
 		        	sc.value = item.school_code;
 		        	cn.value = item.class_number;
 		        });
