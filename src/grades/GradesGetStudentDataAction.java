@@ -20,17 +20,17 @@ public class GradesGetStudentDataAction extends Action {
 
 
 		List<Students> studentList = stDAO.searchdata(student_id);
-		
-		
-		
-		
+
+
+
+
 	    response.setContentType("application/json; charset=UTF-8");
 	    PrintWriter out = response.getWriter();
-	    
+
 	    out.print("[");
 	    for (int i = 0; i < studentList.size(); i++) {
 	        Students st = studentList.get(i);
-	        out.println("{\"school_code\":\"" + st.getSchool_code() + "\",\"class_number\":\"" + st.getClass_number() + "\"}");
+	        out.println("{\"school_code\":\"" + st.getSchool_code() + "\",\"class_number\":\"" + st.getClass_number() + "\",\"student_name\":\"" + st.getStudent_name() + "\"}");
 	        if (i < studentList.size() - 1) out.print(",");
 	    }
 	    out.print("]");

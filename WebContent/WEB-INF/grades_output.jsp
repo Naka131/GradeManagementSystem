@@ -2,6 +2,7 @@
 <%
     request.setCharacterEncoding("UTF-8");
     String student_id = request.getParameter("student_id");
+    String student_name = request.getParameter("student_name");
     String school_code = request.getParameter("school_code");
     String class_number = request.getParameter("class_number");
     String subject_name = request.getParameter("subject_name");
@@ -10,6 +11,7 @@
 %>
 <h2>以下の内容で登録しますか？</h2>
 <p>【学籍番号】<%= student_id %></p>
+<p>【氏名】<%= student_name %></p>
 <p>【学校コード】<%= school_code %></p>
 <p>【クラス番号】<%= class_number %></p>
 <p>【科目名】<%= subject_name %></p>
