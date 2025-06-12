@@ -128,10 +128,10 @@ public class GradesDAO extends DAO {
 
 			"UPDATE exam SET subject_code=?, attempt_number=?, score=?, subject_name=(select subject_name from subject where subject_code = ?) WHERE student_id=? and subject_code=? and attempt_number=?");
 
-		st.setString(1, upadte_subject_code);
+		st.setString(1, update_subject_code);
 		st.setInt(2, update_attempt_number);
 		st.setInt(3, update_score);
-		st.setString(4, upadte_subject_code);
+		st.setString(4, update_subject_code);
 		st.setString(5, student_id);
 		st.setString(6, subject_code);
 		st.setInt(7, attempt_number);
