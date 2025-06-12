@@ -9,6 +9,8 @@
 <head>
     <title>成績参照</title>
 </head>
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/sortArrow.css">
 <body>
 <%@ include file="../header.jsp" %>
     <h1>成績一覧</h1>
@@ -32,7 +34,7 @@
     </select><br>
     【クラス番号】
 	<select id="class_number"  class="search" name="class_number">
-		<option value="">学校コードを選択してください</option>
+		<option value="">選択してください</option>
 	</select><br>
 	【科目名】
         <select id="subject_name"  name="subject_name"  class="search">
@@ -55,20 +57,20 @@
     <table border="1">
         <thead>
             <tr>
-                <th>学籍番号</th>
-                <th>氏名</th>
-                <th>学校コード</th>
-                <th>クラス番号</th>
-                <th>科目名</th>
-                <th>回数</th>
-                <th>点数</th>
+                <th id="0" class="sort">学籍番号</th>
+                <th id="1">氏名</th>
+                <th id="2">学校コード</th>
+                <th id="3">クラス番号</th>
+                <th id="4">科目名</th>
+                <th id="5">回数</th>
+                <th id="6" class="sort">点数</th>
             </tr>
         </thead>
-        <tbody id="grades">
+        <tbody id="gradesData">
             <%
                 for (Grades gr : grList) {
             %>
-            <tr>
+            <tr class="grades">
                 <td><%= gr.getStudent_id() %></td>
                 <td><%= gr.getStudent_name() %></td>
                 <td><%= gr.getSchool_code() %></td>
@@ -115,7 +117,8 @@
     const sj = document.getElementById("subject_name");
     const an = document.getElementById("attempt_number");
     const sn = document.getElementById("searchname");
-    const grades = document.getElementById("grades");
+    const grades = document.getElementsByClassName("grades");
+    const gd = document.getElementById("gradesData");
 		ssc.addEventListener("change", async function () {
 		const params = new URLSearchParams();
 		params.append("school_code", ssc.value);
@@ -159,6 +162,87 @@
 		})
 	}
 
+	//ソートテスト
+	const sorts = document.getElementsByClassName("sort")
+	for (sort of sorts) {
+		sort.addEventListener("click", (event) => {
+			for (sortremove of sorts) {
+				if(event.target.id != sortremove.id) {
+					sortremove.classList.remove("asc");
+					sortremove.classList.remove("desc");
+				}
+			}
+			if (event.target.classList.contains("asc")) {
+				event.target.classList.replace("asc", "desc");
+			} else if(event.target.classList.contains("desc")) {
+				event.target.classList.remove("desc");
+			} else {
+				event.target.classList.add("asc");
+			}
+			console.log(event.target.className.split(" ")[1]);
+			const list = []
+			const list2 = []
+			for (grade of grades) {
+				for(let i = 0; i < grade.children.length-1; i++){
+					list.push(grade.children[i].textContent);
+				}
+			}
+			const order = event.target.className.split(" ")[1];
+			if (order == null){
+				GradesSearch();
+			} else {
+				const params = new URLSearchParams();
+				const cl =[];
+				params.append("test", list);
+				params.append("index", event.target.id);
+				params.append("order", order);
+				fetch("grades.GradesSort.action", {
+				      method: 'POST',
+				      headers: {
+				          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+				      },
+				      body: params.toString()
+				  })
+				  .then(response => response.json())
+				  .then(data => {
+					  grades.innerHTML = "";
+				      data.forEach(item => {
+			            cl.push(`<tr class="grades">
+			                <td>\${item.student_id}</td>
+			                <td>\${item.student_name}</td>
+			                <td>\${item.school_code}</td>
+			                <td>\${item.class_number}</td>
+			                <td>\${item.subject_name}</td>
+			                <td>\${item.attempt_number}</td>
+			                <td>\${item.score}</td>
+			                <c:if test="${account.access_level == 1}">
+	                        <td>
+	                            <form method="post" action="grades.GradesDelete.action" style="display:inline;">
+	                                <input type="hidden" name="student_id" value="\${item.student_id}" />
+	                                <input type="hidden" name="subject_code" value="\${item.subject_code}" />
+	                                <input type="hidden" name="attempt_number" value="\${item.attempt_number}" />
+	                                <input type="submit" value="削除" />
+	                            </form>
+	                            <form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
+	                                <input type="hidden" name="student_id" value="\${item.student_id}" />
+	                                <input type="hidden" name="subject_code" value="\${item.subject_code}" />
+	                                <input type="hidden" name="attempt_number" value="\${item.attempt_number}" />
+	                                <input type="submit" value="更新" />
+	                            </form>
+	                            </td>
+	                        </c:if>
+			            </tr>`)
+				      });
+					  gd.innerHTML = cl.join("");
+				  })
+				  .catch(error => {
+				      console.error("Error fetching class list:", error);
+				  });
+
+			}
+		})
+	}
+
 	reset.addEventListener("click", () => {
 		si.value = "";
 		ssc.options[0].selected = true;
@@ -189,7 +273,7 @@
 			  .then(data => {
 				  grades.innerHTML = "";
 			      data.forEach(item => {
-		            cl.push(`<tr>
+		            cl.push(`<tr class="grades">
 		                <td>\${item.student_id}</td>
 		                <td>\${item.student_name}</td>
 		                <td>\${item.school_code}</td>
@@ -215,7 +299,7 @@
                         </c:if>
 		            </tr>`)
 			      });
-				  grades.innerHTML = cl.join("");
+				  gd.innerHTML = cl.join("");
 			  })
 			  .catch(error => {
 			      console.error("Error fetching class list:", error);

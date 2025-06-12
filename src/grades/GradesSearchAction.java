@@ -19,11 +19,11 @@ public class GradesSearchAction extends Action{
 		String subject_name = request.getParameter("subject_name");
 		String attempt_number = request.getParameter("attempt_number");
 		String student_name = request.getParameter("student_name");
-
 		GradesDAO grDAO =new GradesDAO();
 		List<Grades> grList = grDAO.keywordsearch(student_id,school_code,class_number,subject_name,attempt_number,student_name);
 		response.setContentType("application/json; charset=UTF-8");
 	    PrintWriter out = response.getWriter();
+
 
 	    out.print("[");
 	    for (int i = 0; i < grList.size(); i++) {
