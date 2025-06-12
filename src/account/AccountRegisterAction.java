@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Account;
-import dao.AccountRegisterDAO;
+import dao.AccountDAO;
 import tool.Action;
 
 public class AccountRegisterAction extends Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+    try {
         String teacher_name = request.getParameter("teacher_name");
         String teacher_id = request.getParameter("teacher_id");
         String password = request.getParameter("password");
@@ -29,12 +29,17 @@ public class AccountRegisterAction extends Action {
         ab.setAccess_level(access_level);
 
 
-        AccountRegisterDAO aDao = new AccountRegisterDAO();
+        AccountDAO aDao = new AccountDAO();
         aDao.registerAccount(ab);
 
 
         return "WEB-INF/registerSuccess.jsp";
-    }
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    return "WEB-INF/error.jsp";
+	}
+
+}
 
 
     private String hashPassword(String password) {

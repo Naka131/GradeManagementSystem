@@ -7,7 +7,7 @@ import tool.Action;
 public class SubjectRegisterAction extends Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "WEB-INF/subjectinput.jsp";
+        return "WEB-INF/subject_input.jsp";
     }
 }
 

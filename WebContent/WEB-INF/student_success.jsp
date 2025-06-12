@@ -8,6 +8,6 @@
 <body>
     <h1>登録できました！</h1>
     <p><a href="index.jsp">トップページに戻る</a></p>
-    <p><a href="student.StudentsRegister.action">再登録</a></p>
+    <p><a href="student.StudentRegister.action">再登録</a></p>
 </body>
 </html>

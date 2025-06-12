@@ -119,12 +119,13 @@ public class GradesDAO extends DAO {
     }
 
 
-	public String update(int update_score,int update_attempt_number,String upadte_subject_code,String student_id,String subject_code,int attempt_number) throws Exception {
+	public String update(int update_score,int update_attempt_number,String update_subject_code,String student_id,String subject_code,int attempt_number) throws Exception {
 
 
 		Connection con=getConnection();
 
 		PreparedStatement st=con.prepareStatement(
+
 			"UPDATE exam SET subject_code=?, attempt_number=?, score=?, subject_name=(select subject_name from subject where subject_code = ?) WHERE student_id=? and subject_code=? and attempt_number=?");
 
 		st.setString(1, upadte_subject_code);

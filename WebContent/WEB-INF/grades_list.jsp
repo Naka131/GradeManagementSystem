@@ -94,6 +94,7 @@
                                 </form>
                                 </td>
                             </c:if>
+                            
             </tr>
             <%
                 }
@@ -104,10 +105,10 @@
         } else{
      %>
      <p>登録されていません</p>
-      <input type="button" value="戻る" onclick="location.href='input.GradesInput.action'">
      <%
         }
     %>
+    <input type="button" value="戻る" onclick="location.href='input.GradesInput.action'">
 <script>
 	const resetButton = document.getElementById("reset");
     const si = document.getElementById("student_id");

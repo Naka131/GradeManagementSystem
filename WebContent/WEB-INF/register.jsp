@@ -10,6 +10,6 @@
 <body>
 <%@ include file="../header.jsp" %>
 <p><a href="input.AccountRegisterInput.action">アカウント登録</a></p>
-<p><a href="#">アカウント一覧</a></p>
+<p><a href="account.Account.action">アカウント一覧</a></p>
 </body>
 </html>
