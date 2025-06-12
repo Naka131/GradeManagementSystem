@@ -28,7 +28,7 @@
 
 		<input type="submit" value="送信"><br><br>
 
-		<input type="button" value="ホームに戻る" onclick="location.href='index.jsp'">
+		<input type="button" value="戻る" onclick="location.href='input.StudentListInput.action'">
 	</form>
 </body>
 </html>

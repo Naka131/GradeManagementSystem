@@ -1,27 +1,27 @@
-package student;
+package account;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Students;
-import dao.StudentDAO;
+import bean.Account;
+import dao.AccountDAO;
 import tool.Action;
 
-public class StudentsAction extends Action {
+public class AccountAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 
-		StudentDAO sDAO = new StudentDAO();
-		List<Students> st = sDAO.search();
+		AccountDAO aDAO = new AccountDAO();
+		List<Account> ac = aDAO.Accoutsearch();
 
-		session.setAttribute("stList",st);
+		session.setAttribute("acList",ac);
 
 
 
-		return "WEB-INF/student_list.jsp";
+		return "WEB-INF/account_list.jsp";
 	}
 }

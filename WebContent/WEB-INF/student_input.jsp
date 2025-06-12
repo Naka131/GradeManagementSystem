@@ -15,7 +15,7 @@
         List<School> scList = (List<School>)session.getAttribute("scList");
 %>
 	<h2>学生登録</h2>
-	<form action="input.StudentsOutput.action" method="POST">
+	<form action="input.StudentOutput.action" method="POST">
 		【学籍番号】<br>
 		<input type="number" name="student_id" id="student_id" required oninput="limitLength(this, 7)"><br><br>
 		【学校コード】<br>
@@ -48,7 +48,7 @@
 
 		<input type="submit" value="登録"><br><br>
 
-		<input type="button" value="戻る" onclick="location.href='input.StudentsInput.action'">
+		<input type="button" value="戻る" onclick="location.href='input.StudentInput.action'">
 	</form>
 	<script>
 	  function limitLength(el, maxLength) {

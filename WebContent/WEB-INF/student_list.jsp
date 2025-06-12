@@ -20,9 +20,9 @@
             <thead>
                 <tr>
                     <th>学籍番号</th>
+                    <th>氏名</th>
                     <th>学校コード</th>
                     <th>クラス番号</th>
-                    <th>氏名</th>
                     <th>入学年度</th>
                     <th>在籍状況</th>
                 </tr>
@@ -31,9 +31,9 @@
                 <c:forEach var="st" items="${stList}">
                     <tr>
                         <td>${st.student_id}</td>
+                        <td>${st.student_name}</td>
                         <td>${st.school_code}</td>
                         <td>${st.class_number}</td>
-                        <td>${st.student_name}</td>
                         <td>${st.enrollment_year}</td>
                         <td>${st.is_enrolled}</td>
                             <c:if test="${account.access_level == 1}">
@@ -58,6 +58,6 @@
         <p>登録されていません</p>
     </c:if>
 
-    <input type="button" value="戻る" onclick="location.href='input.StudentsInput.action'">
+    <input type="button" value="戻る" onclick="location.href='input.StudentInput.action'">
 </body>
 </html>
