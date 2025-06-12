@@ -34,7 +34,7 @@
     </select><br>
     【クラス番号】
 	<select id="class_number"  class="search" name="class_number">
-		<option value="">学校コードを選択してください</option>
+		<option value="">選択してください</option>
 	</select><br>
 	【科目名】
         <select id="subject_name"  name="subject_name"  class="search">

@@ -23,6 +23,7 @@ public class GradesUpdateAction extends Action {
 
 		return "WEB-INF/update_success.jsp";
 	} catch (Exception e) {
+		System.out.println(e);
 		return "WEB-INF/error.jsp";
 	}
 	}
