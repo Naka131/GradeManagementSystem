@@ -23,7 +23,7 @@
 		<input type="hidden" name="subject_code" value="<%= subject_code %>" />
 		<input type="hidden" name="student_id" value="<%= student_id %>" />
 		<input type="hidden" name="attempt_number" value="<%= attempt_number %>" />
-		
+
 		【科目名】<br>
         <select id="subject_code"  name="update_subject_code" required>
         <%
@@ -33,18 +33,18 @@
 		<%
 		    }
 		%>
-		</select><br><br>						
-		
+		</select><br><br>
+
 		【回数】<br>
 		 <select name="update_attempt_number">
 			<option value="1"selected>1</option>
 			<option value="2">2</option>
 		</select><br><br>
-		
+
 		【点数】<br>
 		<input type="number" name="update_score" min="0" max="100" step="1" required
-		  oninput="this.value = 
-		    this.value > 100 ? 100 : 
+		  oninput="this.value =
+		    this.value > 100 ? 100 :
 		    this.value < 0 ? 0 : this.value">
 		<br><br>
 
