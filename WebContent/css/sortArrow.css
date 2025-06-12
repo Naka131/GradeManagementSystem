@@ -1,0 +1,30 @@
+table th.sort {
+  cursor: pointer;
+  position: relative;
+}
+
+table th.sort::before, table th.sort::after {
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border: 5px solid transparent;
+  right: 10px;
+  top: 50%;
+}
+
+table th.sort::before {
+    border-bottom-color: #aaa;
+    margin-top: -10px;
+}
+table th.sort::after {
+    border-top-color: #aaa;
+    margin-top: 2px;
+}
+
+table th.sort.asc::before {
+          border-bottom-color: #444;
+      }
+   table th.sort.desc::after {
+       border-top-color: #444;
+   }

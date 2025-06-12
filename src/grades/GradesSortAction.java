@@ -19,7 +19,6 @@ public class GradesSortAction extends Action {
 		String test = request.getParameter("test");
 		int index = Integer.parseInt(request.getParameter("index"));
 		String order = request.getParameter("order");
-		System.out.println(order);
 		List<String> testList =  Arrays.asList(test.split(","));
 		List<List<String>> list = new ArrayList<>();
 		int n = 0;
@@ -28,24 +27,18 @@ public class GradesSortAction extends Action {
 			n += 7;
 		}
 		if (order.equals("asc")) {
-			System.out.println("A");
 			try {
 				list.sort(Comparator.comparing(row -> Integer.parseInt(row.get(index))));
-				System.out.println(list);
 			} catch (Exception e) {
 				Collator collator = Collator.getInstance(Locale.JAPANESE);
 				list.sort(Comparator.comparing(row -> row.get(index), collator));
-				System.out.println(list);
 			}
 		} else if (order.equals("desc")) {
-			System.out.println("B");
 			try {
 				list.sort(Comparator.comparing((List<String> row) -> Integer.parseInt(row.get(index))).reversed());
-				System.out.println(list);
 			} catch (Exception e) {
 				Collator collator = Collator.getInstance(Locale.JAPANESE);
 				list.sort(Comparator.comparing((List<String> row) -> row.get(index), collator).reversed());
-				System.out.println(list);
 			}
 		}
 

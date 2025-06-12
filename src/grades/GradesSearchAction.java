@@ -13,7 +13,6 @@ import tool.Action;
 public class GradesSearchAction extends Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("C");
 		String student_id = request.getParameter("student_id");
 		String school_code = request.getParameter("school_code");
 		String class_number = request.getParameter("class_number");

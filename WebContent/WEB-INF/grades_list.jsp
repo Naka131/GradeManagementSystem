@@ -9,6 +9,8 @@
 <head>
     <title>成績参照</title>
 </head>
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/sortArrow.css">
 <body>
 <%@ include file="../header.jsp" %>
     <h1>成績一覧</h1>
@@ -57,10 +59,10 @@
             <tr>
                 <th id="0" class="sort">学籍番号</th>
                 <th id="1">氏名</th>
-                <th id="2" class="sort">学校コード</th>
-                <th id="3" class="sort">クラス番号</th>
-                <th id="4" class="sort">科目名</th>
-                <th id="5" class="sort">回数</th>
+                <th id="2">学校コード</th>
+                <th id="3">クラス番号</th>
+                <th id="4">科目名</th>
+                <th id="5">回数</th>
                 <th id="6" class="sort">点数</th>
             </tr>
         </thead>
