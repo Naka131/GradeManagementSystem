@@ -3,7 +3,7 @@
     request.setCharacterEncoding("UTF-8");
     String student_id = request.getParameter("student_id");
 %>
-<h2>本当に削除しますか？</h2>
+<h2>削除しますか？</h2>
 
 <form action="student.StudentDelete.action" method="post">
     <input type="hidden" name="student_id" value="<%=student_id %>">

@@ -19,7 +19,7 @@
     </nav>
     <nav class="nav-right">
       <span class="teacher_name">${account.teacher_name}</span>
-      <a href="account.Logout.action">ログアウト</a>
+      <a href="input.LogoutInput.action">ログアウト</a>
     </nav>
   </div>
 </div>
