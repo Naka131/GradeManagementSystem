@@ -7,7 +7,7 @@ import tool.Action;
 
 public class StudentDeleteAction extends Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+    try {
 		String student_id=request.getParameter("student_id");
 		if (student_id==null) student_id="";
 
@@ -15,5 +15,9 @@ public class StudentDeleteAction extends Action {
 		bdao.delete(student_id);
 
 		return "WEB-INF/delete_success.jsp";
+	} catch (Exception e) {
+		System.out.print(e);
+		return "WEB-INF/error.jsp";
+	}
     }
 }

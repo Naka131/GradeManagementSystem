@@ -38,12 +38,14 @@
                         <td>${st.is_enrolled}</td>
                             <c:if test="${account.access_level == 1}">
                             <td>
-                                <form method="post" action="student.StudentDelete.action" style="display:inline;">
+                                <form method="post" action="input.StudentDeleteInput.action" style="display:inline;">
                                     <input type="hidden" name="student_id" value="${st.student_id}" />
                                     <input type="submit" value="削除" />
                                 </form>
                                 <form method="post" action="input.StudentUpdateInput.action" style="display:inline;">
                                     <input type="hidden" name="student_id" value="${st.student_id}" />
+                                    <input type="hidden" name="student_name" value="${st.student_name}" />
+                                    <input type="hidden" name="is_enrolled" value="${st.is_enrolled}" />
                                     <input type="submit" value="更新" />
                                 </form>
                                 </td>

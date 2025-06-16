@@ -14,14 +14,16 @@ public class StudentRegisterAction extends Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-
-
+	try {
 		SchoolCodeDAO scDAO = new SchoolCodeDAO();
 		List<School> sc = scDAO.search();
 		session.setAttribute("scList",sc);
 
 
 		return "WEB-INF/student_input.jsp";
+	} catch (Exception e) {
+		System.out.print(e);
+		return "WEB-INF/error.jsp";
 	}
-
+  }
 }

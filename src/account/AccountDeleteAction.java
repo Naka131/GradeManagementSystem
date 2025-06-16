@@ -7,7 +7,7 @@ import tool.Action;
 
 public class AccountDeleteAction extends Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+    try {
 		String teacher_id=request.getParameter("teacher_id");
 		if (teacher_id==null) teacher_id="";
 
@@ -15,5 +15,9 @@ public class AccountDeleteAction extends Action {
 		aDao.Accountdelete(teacher_id);
 
 		return "WEB-INF/delete_success.jsp";
+	} catch (Exception e) {
+		System.out.print(e);
+		return "WEB-INF/error.jsp";
+	}
     }
 }

@@ -30,7 +30,7 @@
                         <td>${sj.subject_name}</td>
                             <c:if test="${account.access_level == 1}">
                             <td>
-                                <form method="post" action="subject.SubjectDelete.action" style="display:inline;">
+                                <form method="post" action="input.SubjectDeleteInput.action" style="display:inline;">
                                     <input type="hidden" name="subject_code" value="${sj.subject_code}" />
                                     <input type="submit" value="削除" />
                                 </form>

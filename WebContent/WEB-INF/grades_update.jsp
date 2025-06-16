@@ -13,12 +13,15 @@
     request.setCharacterEncoding("UTF-8");
     String subject_code = request.getParameter("subject_code");
     String student_id = request.getParameter("student_id");
+    String student_name = request.getParameter("student_name");
     int attempt_number = Integer.parseInt(request.getParameter("attempt_number"));
     List<Subjects> sjList = (List<Subjects>)session.getAttribute("sjList");
     %>
 <body>
 <%@ include file="../header.jsp" %>
 	<h2>更新</h2>
+	<p>学籍番号:<%= student_id %></p>
+	<p>氏名:<%= student_name %></p>
 	<form action="grades.GradesUpdate.action" method="POST">
 		<input type="hidden" name="subject_code" value="<%= subject_code %>" />
 		<input type="hidden" name="student_id" value="<%= student_id %>" />

@@ -108,6 +108,23 @@ public class AccountDAO extends DAO {
 
 		return null;
 	}
+    
+    public String update(String teacher_id,int access_level) throws Exception {
+
+		Connection con=getConnection();
+
+		PreparedStatement st=con.prepareStatement(
+			"UPDATE teacher SET access_level = ? WHERE teacher_id = ?");
+		st.setInt(1, access_level);
+		st.setString(2, teacher_id);
+		st.executeUpdate();
+		
+		
+		st.close();
+		con.close();
+
+		return null;
+	}
 }
 
 
