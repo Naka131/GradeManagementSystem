@@ -8,7 +8,7 @@
 <title>トップページ</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <c:choose>
 <c:when test="${account.access_level == 1 }">
 <h2>管理者ページ</h2>

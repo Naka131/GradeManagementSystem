@@ -39,12 +39,14 @@
                         </c:if>
                             <c:if test="${account.access_level == 1 && ac.teacher_id != account.teacher_id}">
 							    <td>
-							        <form method="post" action="account.AccountDelete.action" style="display:inline;">
+							        <form method="post" action="input.AccountDeleteInput.action" style="display:inline;">
 							            <input type="hidden" name="teacher_id" value="${ac.teacher_id}" />
 							            <input type="submit" value="削除" />
 							        </form>
-							        <form method="post" action="input.StudentUpdateInput.action" style="display:inline;">
+							        <form method="post" action="input.AccountUpdateInput.action" style="display:inline;">
 							            <input type="hidden" name="teacher_id" value="${ac.teacher_id}" />
+							            <input type="hidden" name="teacher_name" value="${ac.teacher_name}" />
+							            <input type="hidden" name="access_level" value="${ac.access_level}" />
 							            <input type="submit" value="更新" />
 							        </form>
 							    </td>

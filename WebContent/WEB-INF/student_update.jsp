@@ -11,13 +11,17 @@
     <%
     request.setCharacterEncoding("UTF-8");
     String student_id = request.getParameter("student_id");
+    String student_name = request.getParameter("student_name");
+    String is_enrolled = request.getParameter("is_enrolled");
     %>
 <body>
 <%@ include file="../header.jsp" %>
 	<h2>更新</h2>
 	<form action="student.StudentUpdate.action" method="POST">
 		<input type="hidden" name="student_id" value="<%= student_id %>" />
-		<h3>学籍番号<%=student_id %></h3>
+		<p>学籍番号:<%=student_id %></p>
+		<p>氏名:<%=student_name %></p>
+		<p>現在の在籍状況:<%=is_enrolled %></p>
 		【在籍状況】<br>
         <select name="is_enrolled">
 			<option value="在籍" selected>在籍</option>
