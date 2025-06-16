@@ -5,7 +5,7 @@
     String subject_code = request.getParameter("subject_code");
     int attempt_number = Integer.parseInt(request.getParameter("attempt_number"));
 %>
-<h2>本当に削除しますか？</h2>
+<h2>削除しますか？</h2>
 
 <form action="grades.GradesDelete.action" method="post">
     <input type="hidden" name="student_id" value="<%=student_id %>">
