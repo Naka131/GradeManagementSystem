@@ -15,7 +15,7 @@
 <div class="header-left">
   <div class="header-inner">
     <nav class="nav-left">
-      <a href="index.jsp">トップページ</a>
+      <a href="index.jsp">成績管理システム</a>
     </nav>
     <nav class="nav-right">
       <span class="teacher_name">${account.teacher_name}</span>

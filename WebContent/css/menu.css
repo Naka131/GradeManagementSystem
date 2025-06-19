@@ -1,0 +1,94 @@
+/* ベーススタイル */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  margin: 0;
+  padding: 0;
+  color: #102a43;
+  font-size: 15px;
+  padding-top: 60px;
+}
+
+/* コンテナ */
+.container {
+  max-width: 700px;
+  width: 95vw;
+  margin: 100px auto 80px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgb(16 42 67 / 0.1);
+  backdrop-filter: blur(6px);
+  box-sizing: border-box;
+}
+
+/* 見出し */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #334e68;
+  margin-bottom: 36px;
+  border-left: 6px solid #627d98;
+  padding-left: 16px;
+}
+
+/* メニューグリッド */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  justify-items: center;
+}
+
+/* メニューカード */
+.menu-card {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(145deg, #f7fafc, #e1e8f0);
+  border-radius: 18px;
+  padding: 22px 18px;
+  box-shadow: 4px 4px 10px #bcccdc, -4px -4px 10px #ffffff;
+  color: #334e68;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  text-decoration: none;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ホバー・フォーカス時 */
+.menu-card:hover,
+.menu-card:focus {
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 14px #a1b3c9, -6px -6px 14px #ffffff;
+  background: linear-gradient(145deg, #e1e8f0, #f0f7ff);
+  color: #1b355d;
+  outline: none;
+}
+
+/* キーボードフォーカス時 */
+.menu-card:focus-visible {
+  outline: 3px solid #9bb7d4;
+  outline-offset: 4px;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .container {
+    max-width: 95vw;
+    margin: 80px 20px 40px;
+    padding: 30px 20px;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu-card {
+    max-width: 100%;
+  }
+}

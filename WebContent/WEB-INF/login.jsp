@@ -12,7 +12,6 @@
 ユーザーID：<input type="text" name="teacher_id" required><br>
 パスワード：<input type="password" name="password" required><br>
 <input type="submit" value="ログイン"><br>
-<a href="input.AccountRegisterInput.action">新規登録</a>
 </form>
  <c:if test="${not empty errorMsg}">
         <p style="color:red;">${errorMsg}</p>
