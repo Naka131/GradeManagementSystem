@@ -49,7 +49,7 @@
               </c:choose>
             </td>
             <c:if test="${account.access_level == 1}">
-              <td>
+              <td class="actions">
                 <form method="post" action="input.StudentDeleteInput.action">
                   <input type="hidden" name="student_id" value="${st.student_id}" />
                   <input type="submit" value="削除" />
