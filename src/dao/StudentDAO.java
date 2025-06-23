@@ -66,6 +66,39 @@ public class StudentDAO extends DAO {
 		con.close();
 		return stList;
 	}
+	
+	public List<Students> keywordsearch(String stundet_id,String school_code,String class_number,String student_name)
+			throws Exception {
+		List<Students> stList = new ArrayList<>();
+		
+		Connection con=getConnection();
+		
+		PreparedStatement s;
+		s=con.prepareStatement(
+				"select * from student where student_id like ? and school_code like ? and class_number like ? and(student_name like ? or student_kana like ?)");
+		s.setString(1, "%" + stundet_id + "%");
+		s.setString(2, "%" + school_code + "%");
+		s.setString(3, "%" + class_number + "%");
+		s.setString(4, "%" + student_name + "%");
+		s.setString(5, "%" + student_name + "%");
+		ResultSet rs=s.executeQuery();
+		
+		while (rs.next()) {
+			Students st = new Students();
+			st.setStudent_id(rs.getString("student_id"));
+			st.setSchool_code(rs.getString("school_code"));
+			st.setClass_number(rs.getString("class_number"));
+			st.setStudent_name(rs.getString("student_name"));
+			st.setStudent_kana(rs.getString("student_kana"));
+			st.setEnrollment_year(rs.getInt("enrollment_year"));
+			st.setIs_enrolled(rs.getString("is_enrolled"));
+			stList.add(st);
+		}
+		
+		s.close();
+		con.close();
+		return stList;
+	}
 
 
 
