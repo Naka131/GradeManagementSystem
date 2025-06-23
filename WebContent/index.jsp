@@ -46,6 +46,6 @@
     </div>
 </c:when>
 </c:choose>
-</div>r
+</div>
 </body>
 </html>
