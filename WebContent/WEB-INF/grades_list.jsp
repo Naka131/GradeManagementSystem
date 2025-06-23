@@ -8,11 +8,13 @@
 <html>
 <head>
     <title>成績参照</title>
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/sortArrow.css">
+    <link rel="stylesheet" href="css/list.css">
 </head>
-<link rel="stylesheet" href="css/table.css">
-<link rel="stylesheet" href="css/sortArrow.css">
 <body>
 <%@ include file="../header.jsp" %>
+<div class="container">
     <h1>成績一覧</h1>
     <%
         List<School> scList = (List<School>)session.getAttribute("scList");
@@ -37,22 +39,22 @@
 		<option value="">選択してください</option>
 	</select><br>
 	【科目名】
-        <select id="subject_name"  name="subject_name"  class="search">
-        	<option value="">選択してください</option>
-        <%
-		    for (Subjects sj : sjList) {
-		%>
-		    <option value="<%= sj.getSubject_name()%>"><%= sj.getSubject_name() %></option>
-		<%
-		    }
-		%>
-		</select><br>
+    <select id="subject_name"  name="subject_name"  class="search">
+    	<option value="">選択してください</option>
+    <%
+	    for (Subjects sj : sjList) {
+	%>
+	    <option value="<%= sj.getSubject_name()%>"><%= sj.getSubject_name() %></option>
+	<%
+	    }
+	%>
+	</select><br>
 	【回数】
-		 <select id="attempt_number" name="attempt_number" class="search">
-		 	<option value="">選択してください</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-		</select><br>
+	 <select id="attempt_number" name="attempt_number" class="search">
+	 	<option value="">選択してください</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+	</select><br>
     【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索"><button id="reset">リセット</button>
     <table border="1">
         <thead>
@@ -65,6 +67,9 @@
                 <th id="5">科目名</th>
                 <th id="6">回数</th>
                 <th id="7" class="sort">点数</th>
+                <c:if test="${account.access_level == 1}">
+                    <th>操作</th>
+                </c:if>
             </tr>
         </thead>
         <tbody id="gradesData">
@@ -81,23 +86,22 @@
                 <td><%= gr.getAttempt_number() %></td>
                 <td><%= gr.getScore() %></td>
                 <c:if test="${account.access_level == 1}">
-                            <td>
-                                <form method="post" action="input.GradesDeleteInput.action" style="display:inline;">
-                                    <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
-                                    <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
-                                    <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
-                                    <input type="submit" value="削除" />
-                                </form>
-                                <form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
-                                    <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
-                                    <input type="hidden" name="student_name" value="<%= gr.getStudent_name() %>" />
-                                    <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
-                                    <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
-                                    <input type="submit" value="更新" />
-                                </form>
-                                </td>
-                            </c:if>
-
+                <td class="actions">
+                    <form method="post" action="input.GradesDeleteInput.action" style="display:inline;">
+                        <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
+                        <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
+                        <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
+                        <input type="submit" value="削除" />
+                    </form>
+                    <form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
+                        <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
+                        <input type="hidden" name="student_name" value="<%= gr.getStudent_name() %>" />
+                        <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
+                        <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
+                        <input type="submit" value="更新" />
+                    </form>
+                </td>
+                </c:if>
             </tr>
             <%
                 }
@@ -112,6 +116,7 @@
         }
     %>
     <input type="button" value="戻る" onclick="location.href='input.GradesInput.action'">
+</div>
 <script>const access_level = <%= account.getAccess_level() %></script>
 <script src="js/grades_list.js"></script>
 </body>

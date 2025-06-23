@@ -42,12 +42,7 @@
             <td>${st.school_code}</td>
             <td>${st.class_number}</td>
             <td>${st.enrollment_year}</td>
-            <td>
-              <c:choose>
-                <c:when test="${st.is_enrolled}">在籍中</c:when>
-                <c:otherwise>退学</c:otherwise>
-              </c:choose>
-            </td>
+            <td>${st.is_enrolled}</td>
             <c:if test="${account.access_level == 1}">
               <td class="actions">
                 <form method="post" action="input.StudentDeleteInput.action">

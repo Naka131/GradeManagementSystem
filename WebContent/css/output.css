@@ -1,0 +1,107 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  margin: 0;
+  padding: 60px 0 80px 0;
+  color: #102a43;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 700px;
+  width: 95vw;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgb(16 42 67 / 0.1);
+  backdrop-filter: blur(6px);
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #334e68;
+  margin-bottom: 36px;
+  border-left: 6px solid #627d98;
+  padding-left: 16px;
+}
+
+/* スッキリシンプルに項目を表示 */
+.confirm-item {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #334e68;
+  margin-bottom: 14px;
+  padding-left: 12px;
+  border-left: 4px solid #627d98;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+}
+
+/* フォーム配置 */
+form {
+  max-width: 550px;
+  margin: 40px auto 0 auto;
+  text-align: center;
+}
+
+input[type="submit"],
+input[type="button"] {
+  background: linear-gradient(145deg, #f7fafc, #e1e8f0);
+  border-radius: 18px;
+  padding: 12px 36px;
+  margin: 0 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #334e68;
+  border: none;
+  box-shadow: 4px 4px 10px #bcccdc, -4px -4px 10px #ffffff;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  user-select: none;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 14px #a1b3c9, -6px -6px 14px #ffffff;
+  background: linear-gradient(145deg, #e1e8f0, #f0f7ff);
+  color: #1b355d;
+  outline: none;
+}
+
+input[type="button"] {
+  background: linear-gradient(145deg, #e1e8f0, #f0f7ff);
+  color: #627d98;
+}
+
+input[type="button"]:hover,
+input[type="button"]:focus {
+  background: linear-gradient(145deg, #d3dce6, #e6f0ff);
+  color: #334e68;
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 8px #a1b3c9, -3px -3px 8px #ffffff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 95vw;
+    padding: 30px 20px;
+  }
+  .confirm-item {
+    max-width: 100%;
+  }
+  form {
+    max-width: 100%;
+  }
+  input[type="submit"],
+  input[type="button"] {
+    width: 45%;
+    margin: 8px 4%;
+  }
+}
