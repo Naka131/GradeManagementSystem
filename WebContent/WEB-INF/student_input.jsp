@@ -39,7 +39,6 @@
     <div class="form-group">
       <label for="class_number">クラス番号</label>
       <select id="class_number"  name="class_number" required>
-        <!-- JSで動的に追加 -->
       </select>
     </div>
 

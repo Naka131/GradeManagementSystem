@@ -23,10 +23,13 @@
   <h2>新規登録</h2>
 
   <form action="account.AccountRegister.action" method="post">
-    
+
     <div class="form-group">
-      <label><input type="radio" name="access_level" value="1"> 管理者で登録する</label>
-      <label><input type="radio" name="access_level" value="2" checked> ユーザーで登録する</label>
+      <label>【権限】</label>
+      <select id="access_level" name="access_level">
+      	<option value="1">管理者</option>
+      	<option value="2">ユーザー</option>
+      </select>
     </div>
 
     <div class="form-group">

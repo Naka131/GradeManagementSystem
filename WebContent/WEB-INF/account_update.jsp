@@ -30,7 +30,7 @@
 		        <p>現在の権限:ユーザー</p>
 		    </c:otherwise>
 		</c:choose>
-		【在籍状況】<br>
+		【権限】<br>
         <select name="access_level">
 			<option value="1" selected>管理者</option>
 			<option value="2">ユーザー</option>
