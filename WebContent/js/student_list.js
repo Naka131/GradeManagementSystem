@@ -99,7 +99,7 @@ for (sort of sorts) {
 				  students.innerHTML = "";
 			      data.forEach(item => {
 			    	  if (access_level == 1) {
-			    			form = `<td>
+			    			form = `<td class="actions">
                 <form method="post" action="input.StudentDeleteInput.action">
                   <input type="hidden" name="student_id" value="${item.student_id}" />
                   <input type="submit" value="削除" />
@@ -160,7 +160,7 @@ function StudentsSearch() {
 			  students.innerHTML = "";
 		      data.forEach(item => {
 		    	  if (access_level == 1) {
-		    			form = `<td>
+		    			form = `<td class="actions">
                 <form method="post" action="input.StudentDeleteInput.action">
                   <input type="hidden" name="student_id" value="${item.student_id}" />
                   <input type="submit" value="削除" />

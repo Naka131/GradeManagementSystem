@@ -39,7 +39,7 @@
 		<option value="">選択してください</option>
 	</select><br>
 	【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索"><button id="reset">リセット</button>
-    <table>
+    <table border="1">
       <thead>
         <tr>
           <th id="0" class="sort">学籍番号</th>
