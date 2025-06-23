@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Grades implements Serializable{
 	  private String student_id;
 	  private String student_name;
+	  private String student_kana;
 	  private String school_code;
 	  private String class_number;
 	  private String subject_code;
@@ -26,6 +27,14 @@ public class Grades implements Serializable{
 
 	public void setStudent_name(String student_name) {
 		this.student_name = student_name;
+	}
+
+	public String getStudent_kana() {
+		return student_kana;
+	}
+
+	public void setStudent_kana(String student_kana) {
+		this.student_kana = student_kana;
 	}
 
 	public String getSchool_code() {

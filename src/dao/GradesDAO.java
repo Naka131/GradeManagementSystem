@@ -18,13 +18,14 @@ public class GradesDAO extends DAO {
 
 		PreparedStatement s;
 		s=con.prepareStatement(
-			"select e.student_id, st.student_name, e.school_code, e.class_number, e.subject_name, e.subject_code, e.attempt_number, e.score from exam e left join student st on e.student_id = st.student_id");
+			"select e.student_id, st.student_name, st.student_kana,e.school_code, e.class_number, e.subject_name, e.subject_code, e.attempt_number, e.score from exam e left join student st on e.student_id = st.student_id");
 		ResultSet rs=s.executeQuery();
 
 		while (rs.next()) {
 	        Grades gd = new Grades();
 	        gd.setStudent_id(rs.getString("student_id"));
 	        gd.setStudent_name(rs.getString("student_name"));
+	        gd.setStudent_kana(rs.getString("student_kana"));
 	        gd.setSchool_code(rs.getString("school_code"));
 	        gd.setClass_number(rs.getString("class_number"));
 	        gd.setSubject_code(rs.getString("subject_code"));
@@ -46,24 +47,26 @@ public class GradesDAO extends DAO {
 
 		PreparedStatement s;
 		s = con.prepareStatement(
-				"select e.student_id, st.student_name, e.school_code, "
+				"select e.student_id, st.student_name, st.student_kana, e.school_code, "
 				+ "e.class_number, e.subject_name, e.subject_code, e.attempt_number, e.score "
 				+ "from exam e "
 				+ "left join student st on e.student_id = st.student_id where "
 				+ "e.student_id like ? and e.school_code like ? and e.class_number "
-				+ "like ? and subject_name like ? and attempt_number like ? and st.student_name like ?");
+				+ "like ? and subject_name like ? and attempt_number like ? and st.student_name like ? and st.student_kana like ?");
 		s.setString(1, "%" + student_id + "%");
 		s.setString(2, "%" + school_code + "%");
 		s.setString(3, "%" + class_number + "%");
 		s.setString(4, "%" + subject_name + "%");
 		s.setString(5, "%" + attempt_number + "%");
 		s.setString(6, "%" + student_name + "%");
+		s.setString(7, "%" + student_name + "%");
 		ResultSet rs = s.executeQuery();
 
 		while (rs.next()) {
 			Grades gd = new Grades();
 			gd.setStudent_id(rs.getString("student_id"));
 			gd.setStudent_name(rs.getString("student_name"));
+			gd.setStudent_kana(rs.getString("student_kana"));
 			gd.setSchool_code(rs.getString("school_code"));
 			gd.setClass_number(rs.getString("class_number"));
 			gd.setSubject_code(rs.getString("subject_code"));

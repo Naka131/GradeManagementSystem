@@ -38,6 +38,11 @@
       <label>【氏名】</label>
       <input type="text" id="student_name" name="student_name" readonly>
     </div>
+    
+    <div class="form-group">
+      <label>【フリガナ】</label>
+      <input type="text" id="student_kana" name="student_kana" readonly>
+    </div>
 
     <div class="form-group">
       <label>【学校コード】</label>
