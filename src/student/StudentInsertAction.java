@@ -15,6 +15,7 @@ public class StudentInsertAction extends Action {
             String school_code = request.getParameter("school_code");
             String class_number = request.getParameter("class_number");
             String student_name = request.getParameter("student_name");
+            String student_kana = request.getParameter("student_kana");
             int enrollment_year = Integer.parseInt(request.getParameter("enrollment_year"));
             String is_enrolled = request.getParameter("is_enrolled");
             
@@ -23,6 +24,7 @@ public class StudentInsertAction extends Action {
             st.setSchool_code(school_code);
             st.setClass_number(class_number);
             st.setStudent_name(student_name);
+            st.setStudent_kana(student_kana);
             st.setEnrollment_year(enrollment_year);
             st.setIs_enrolled(is_enrolled);
 

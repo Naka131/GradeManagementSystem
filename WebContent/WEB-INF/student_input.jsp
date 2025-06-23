@@ -47,6 +47,11 @@
       <label for="student_name">氏名</label>
       <input type="text" id="student_name" name="student_name" required>
     </div>
+    
+    <div class="form-group">
+      <label for="student_kana">フリガナ</label>
+      <input type="text" id="student_kana" name="student_kana" required>
+    </div>
 
     <div class="form-group">
       <label for="enrollment_year">入学年度</label>
