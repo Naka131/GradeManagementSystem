@@ -28,7 +28,7 @@ public class GradesSearchAction extends Action{
 	    out.print("[");
 	    for (int i = 0; i < grList.size(); i++) {
 	        Grades gr = grList.get(i);
-	        out.print("{\"student_id\":\"" + gr.getStudent_id() + "\",\"student_name\":\"" + gr.getStudent_name() + "\",\"school_code\":\"" + gr.getSchool_code() + "\",\"class_number\":\"" + gr.getClass_number() + "\",\"subject_name\":\"" + gr.getSubject_name() + "\",\"subject_code\":\"" + gr.getSubject_code() + "\",\"attempt_number\":\"" + gr.getAttempt_number() + "\",\"score\":\"" + gr.getScore() + "\"}");
+	        out.print("{\"student_id\":\"" + gr.getStudent_id() + "\",\"student_name\":\"" + gr.getStudent_name() + "\",\"student_kana\":\"" + gr.getStudent_kana() + "\",\"school_code\":\"" + gr.getSchool_code() + "\",\"class_number\":\"" + gr.getClass_number() + "\",\"subject_name\":\"" + gr.getSubject_name() + "\",\"subject_code\":\"" + gr.getSubject_code() + "\",\"attempt_number\":\"" + gr.getAttempt_number() + "\",\"score\":\"" + gr.getScore() + "\"}");
 	        if (i < grList.size() - 1) out.print(",");
 	    }
 	    out.print("]");

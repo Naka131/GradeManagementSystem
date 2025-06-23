@@ -58,12 +58,13 @@
         <thead>
             <tr>
                 <th id="0" class="sort">学籍番号</th>
-                <th id="1">氏名</th>
-                <th id="2">学校コード</th>
-                <th id="3">クラス番号</th>
-                <th id="4">科目名</th>
-                <th id="5">回数</th>
-                <th id="6" class="sort">点数</th>
+                <th id="1" class="sort">氏名</th>
+                <th id="2" class="sort">フリガナ</th>
+                <th id="3">学校コード</th>
+                <th id="4">クラス番号</th>
+                <th id="5">科目名</th>
+                <th id="6">回数</th>
+                <th id="7" class="sort">点数</th>
             </tr>
         </thead>
         <tbody id="gradesData">
@@ -73,6 +74,7 @@
             <tr class="grades">
                 <td><%= gr.getStudent_id() %></td>
                 <td><%= gr.getStudent_name() %></td>
+                <td><%= gr.getStudent_kana() %></td>
                 <td><%= gr.getSchool_code() %></td>
                 <td><%= gr.getClass_number() %></td>
                 <td><%= gr.getSubject_name() %></td>

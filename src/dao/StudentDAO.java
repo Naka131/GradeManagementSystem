@@ -20,7 +20,7 @@ public class StudentDAO extends DAO {
 		s=con.prepareStatement(
 			"select * from student order by student_id asc");
 		ResultSet rs=s.executeQuery();
-		
+
 		while (rs.next()) {
 	        Students st = new Students();
 	        st.setStudent_id(rs.getString("student_id"));
@@ -32,36 +32,36 @@ public class StudentDAO extends DAO {
 	        st.setIs_enrolled(rs.getString("is_enrolled"));
 	        stList.add(st);
 	    }
-		
+
 		s.close();
 		con.close();
 		return stList;
 	}
-	
+
 	public List<Students> searchdata(String stundet_id)
 			throws Exception {
 		List<Students> stList = new ArrayList<>();
-		
+
 		Connection con=getConnection();
-		
+
 		PreparedStatement s;
 		s=con.prepareStatement(
 				"select * from student where student_id=?");
 		s.setString(1, stundet_id);
 		ResultSet rs=s.executeQuery();
-		
+
 		while (rs.next()) {
 			Students st = new Students();
 			st.setStudent_id(rs.getString("student_id"));
 			st.setSchool_code(rs.getString("school_code"));
 			st.setClass_number(rs.getString("class_number"));
 			st.setStudent_name(rs.getString("student_name"));
-			st.setStudent_name(rs.getString("student_kana"));
+			st.setStudent_kana(rs.getString("student_kana"));
 			st.setEnrollment_year(rs.getInt("enrollment_year"));
 			st.setIs_enrolled(rs.getString("is_enrolled"));
 			stList.add(st);
 		}
-		
+
 		s.close();
 		con.close();
 		return stList;
@@ -77,14 +77,14 @@ public class StudentDAO extends DAO {
 			"delete from student where student_id=?");
 		st.setString(1, student_id);
 		st.executeUpdate();
-		
-		
+
+
 		st.close();
 		con.close();
 
 		return null;
 	}
-	
+
 	public void insert(Students student) throws Exception {
         Connection con = getConnection();
 
@@ -102,8 +102,8 @@ public class StudentDAO extends DAO {
         st.close();
         con.close();
     }
-	
-	
+
+
 	public String update(String student_id,String is_enrolled) throws Exception {
 
 		Connection con=getConnection();
@@ -113,8 +113,8 @@ public class StudentDAO extends DAO {
 		st.setString(1, is_enrolled);
 		st.setString(2, student_id);
 		st.executeUpdate();
-		
-		
+
+
 		st.close();
 		con.close();
 

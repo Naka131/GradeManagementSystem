@@ -1,5 +1,6 @@
   const st = document.getElementById("student_id");
   const sn = document.getElementById("student_name");
+  const kn = document.getElementById("student_kana");
   const sc = document.getElementById("school_code");
   const cn = document.getElementById("class_number");
 
@@ -18,6 +19,7 @@
     .then(data => {
       data.forEach(item => {
         sn.value = item.student_name;
+        kn.value = item.student_kana;
         sc.value = item.school_code;
         cn.value = item.class_number;
       });

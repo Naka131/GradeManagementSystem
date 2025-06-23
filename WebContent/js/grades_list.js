@@ -56,8 +56,9 @@ for (sw of searchword) {
 const sorts = document.getElementsByClassName("sort")
 for (sort of sorts) {
 	sort.addEventListener("click", (event) => {
+		let index = event.target.id;
 		for (sortremove of sorts) {
-			if(event.target.id != sortremove.id) {
+			if(index != sortremove.id) {
 				sortremove.classList.remove("asc");
 				sortremove.classList.remove("desc");
 			}
@@ -73,18 +74,22 @@ for (sort of sorts) {
 		const list = []
 		const list2 = []
 		for (grade of grades) {
-			for(let i = 0; i < 7; i++){
+			for(let i = 0; i < 8; i++){
 				list.push(grade.children[i].textContent);
 			}
 		}
 		const order = event.target.className.split(" ")[1];
 		if (order == null){
+			console.log("w");
 			GradesSearch();
 		} else {
+			if (index == 1) {
+				index = 2;
+			}
 			const params = new URLSearchParams();
 			const cl =[];
 			params.append("test", list);
-			params.append("index", event.target.id);
+			params.append("index", index);
 			params.append("order", order);
 			fetch("grades.GradesSort.action", {
 			      method: 'POST',
@@ -116,6 +121,7 @@ for (sort of sorts) {
 		            cl.push(`<tr class="grades">
 		                <td>${item.student_id}</td>
 		                <td>${item.student_name}</td>
+		            	<td>${item.student_kana}</td>
 		                <td>${item.school_code}</td>
 		                <td>${item.class_number}</td>
 		                <td>${item.subject_name}</td>
@@ -183,6 +189,7 @@ function GradesSearch() {
 	            cl.push(`<tr class="grades">
 	                <td>${item.student_id}</td>
 	                <td>${item.student_name}</td>
+	            	<td>${item.student_kana}</td>
 	                <td>${item.school_code}</td>
 	                <td>${item.class_number}</td>
 	                <td>${item.subject_name}</td>
