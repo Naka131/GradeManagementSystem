@@ -52,7 +52,7 @@ public class GradesDAO extends DAO {
 				+ "from exam e "
 				+ "left join student st on e.student_id = st.student_id where "
 				+ "e.student_id like ? and e.school_code like ? and e.class_number "
-				+ "like ? and subject_name like ? and attempt_number like ? and st.student_name like ? and st.student_kana like ?");
+				+ "like ? and subject_name like ? and attempt_number like ? and (st.student_name like ? OR st.student_kana like ?)");
 		s.setString(1, "%" + student_id + "%");
 		s.setString(2, "%" + school_code + "%");
 		s.setString(3, "%" + class_number + "%");
