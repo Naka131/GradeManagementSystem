@@ -7,6 +7,7 @@ public class Students implements Serializable{
 	  private String school_code;
 	  private String class_number;
 	  private String student_name;
+	  private String student_kana;
 	  private int enrollment_year;
 	  private String is_enrolled;
 	  
@@ -48,6 +49,14 @@ public class Students implements Serializable{
 
 	public void setStudent_name(String student_name) {
 		this.student_name = student_name;
+	}
+
+	public String getStudent_kana() {
+		return student_kana;
+	}
+
+	public void setStudent_kana(String student_kana) {
+		this.student_kana = student_kana;
 	}
 
 	public String getIs_enrolled() {

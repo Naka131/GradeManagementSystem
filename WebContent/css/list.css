@@ -1,0 +1,110 @@
+body {
+  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: linear-gradient(135deg, #f2f5f9, #ffffff);
+  margin: 0;
+  padding: 60px 0;
+  color: #34495e;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  border-left: 5px solid #6aa8dc;
+  padding-left: 14px;
+  margin-bottom: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 4px 8px;
+  line-height: 1.2;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+
+th {
+  background-color: #6aa8dc;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) td {
+  background-color: #f8fafc;
+}
+
+tr:hover td {
+  background-color: #eef3f8;
+}
+
+
+.actions form {
+  display: inline-block;
+  margin: 0 3px;
+}
+
+input[type="submit"] {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  background-color: #dbe8f4;
+  color: #2c3e50;
+}
+
+input[type="submit"]:hover {
+  background-color: #c4dbef;
+}
+
+input[type="submit"][value="削除"] {
+  background-color: #f5b6b6;
+  color: #a80000;
+}
+
+input[type="submit"][value="削除"]:hover {
+  background-color: #e89c9c;
+}
+
+input[type="submit"][value="更新"] {
+  background-color: #b7d8f4;
+  color: #144b7d;
+}
+
+input[type="submit"][value="更新"]:hover {
+  background-color: #9cc7ec;
+}
+
+input[type="button"] {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #e3ebf3;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+input[type="button"]:hover {
+  background-color: #d2dde9;
+}

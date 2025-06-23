@@ -27,6 +27,7 @@ public class StudentDAO extends DAO {
 	        st.setSchool_code(rs.getString("school_code"));
 	        st.setClass_number(rs.getString("class_number"));
 	        st.setStudent_name(rs.getString("student_name"));
+	        st.setStudent_kana(rs.getString("student_kana"));
 	        st.setEnrollment_year(rs.getInt("enrollment_year"));
 	        st.setIs_enrolled(rs.getString("is_enrolled"));
 	        stList.add(st);
@@ -55,6 +56,7 @@ public class StudentDAO extends DAO {
 			st.setSchool_code(rs.getString("school_code"));
 			st.setClass_number(rs.getString("class_number"));
 			st.setStudent_name(rs.getString("student_name"));
+			st.setStudent_name(rs.getString("student_kana"));
 			st.setEnrollment_year(rs.getInt("enrollment_year"));
 			st.setIs_enrolled(rs.getString("is_enrolled"));
 			stList.add(st);
@@ -87,13 +89,14 @@ public class StudentDAO extends DAO {
         Connection con = getConnection();
 
         PreparedStatement st = con.prepareStatement(
-        		"INSERT INTO student (student_id, school_code, class_number,student_name, enrollment_year, is_enrolled) VALUES (?, ?, ?, ?, ?, ?)");
+        		"INSERT INTO student (student_id, school_code, class_number,student_name, student_kana, enrollment_year, is_enrolled) VALUES (?, ?, ?, ?, ?, ?, ?)");
         st.setString(1, student.getStudent_id());
         st.setString(2, student.getSchool_code());
         st.setString(3, student.getClass_number());
         st.setString(4, student.getStudent_name());
-        st.setInt(5, student.getEnrollment_year());
-        st.setString(6, student.getIs_enrolled());
+        st.setString(5, student.getStudent_kana());
+        st.setInt(6, student.getEnrollment_year());
+        st.setString(7, student.getIs_enrolled());
         st.executeUpdate();
 
         st.close();

@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>トップページ</title>
+    <title>成績管理システム</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -46,6 +46,6 @@
     </div>
 </c:when>
 </c:choose>
-</div>
+</div>r
 </body>
 </html>
