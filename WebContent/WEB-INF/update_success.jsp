@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>更新成功</title>
-<link rel="stylesheet" href="css/update_success.css">
+<link rel="stylesheet" href="css/success.css">
 </head>
 <body>
 <div class="container">
