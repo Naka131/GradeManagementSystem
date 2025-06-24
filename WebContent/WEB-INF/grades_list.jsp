@@ -94,14 +94,14 @@
                 <td class="actions">
                     <form method="post" action="input.GradesDeleteInput.action" style="display:inline;">
                         <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
-                        <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
+                        <input type="hidden" name="subject_name" value="<%= gr.getSubject_name() %>" />
                         <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
                         <input type="submit" value="削除" />
                     </form>
                     <form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
                         <input type="hidden" name="student_id" value="<%= gr.getStudent_id() %>" />
                         <input type="hidden" name="student_name" value="<%= gr.getStudent_name() %>" />
-                        <input type="hidden" name="subject_code" value="<%= gr.getSubject_code() %>" />
+                        <input type="hidden" name="subject_name" value="<%= gr.getSubject_name() %>" />
                         <input type="hidden" name="attempt_number" value="<%= gr.getAttempt_number() %>" />
                         <input type="submit" value="更新" />
                     </form>

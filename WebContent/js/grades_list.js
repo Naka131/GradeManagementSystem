@@ -106,15 +106,16 @@ for (sort of sorts) {
 			    	  if (access_level == 1) {
 			    			form = `
 			    			<td class="actions">
-				    		    <form method="post" action="grades.GradesDelete.action" style="display:inline;">
+				    		    <form method="post" action="grades.GradesDeleteInput.action" style="display:inline;">
 					    		    <input type="hidden" name="student_id" value="${item.student_id}" />
-					    		    <input type="hidden" name="subject_code" value="${item.subject_code}" />
+					    		    <input type="hidden" name="subject_name" value="${item.subject_name}" />
 					    		    <input type="hidden" name="attempt_number" value="${item.attempt_number}" />
 					    		    <input type="submit" value="削除" />
 				    			</form>
 					    		<form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
 					    		    <input type="hidden" name="student_id" value="${item.student_id}" />
-					    		    <input type="hidden" name="subject_code" value="${item.subject_code}" />
+			    					<input type="hidden" name="student_name" value="${item.student_name}" />
+					    		    <input type="hidden" name="subject_name" value="${item.subject_name}" />
 					    		    <input type="hidden" name="attempt_number" value="${item.attempt_number}" />
 					    		    <input type="submit" value="更新" />
 					    		</form>
@@ -181,15 +182,16 @@ function GradesSearch() {
 		    	  if (access_level == 1) {
 		    			form = `
 			    			<td class="actions">
-				    		    <form method="post" action="grades.GradesDelete.action" style="display:inline;">
+				    		    <form method="post" action="grades.GradesDeleteInput.action" style="display:inline;">
 					    		    <input type="hidden" name="student_id" value="${item.student_id}" />
-					    		    <input type="hidden" name="subject_code" value="${item.subject_code}" />
+					    		    <input type="hidden" name="subject_name" value="${item.subject_name}" />
 					    		    <input type="hidden" name="attempt_number" value="${item.attempt_number}" />
 					    		    <input type="submit" value="削除" />
 				    			</form>
 					    		<form method="post" action="input.GradesUpdateInput.action" style="display:inline;">
 					    		    <input type="hidden" name="student_id" value="${item.student_id}" />
-					    		    <input type="hidden" name="subject_code" value="${item.subject_code}" />
+				    				<input type="hidden" name="student_name" value="${item.student_name}" />
+					    		    <input type="hidden" name="subject_name" value="${item.subject_name}" />
 					    		    <input type="hidden" name="attempt_number" value="${item.attempt_number}" />
 					    		    <input type="submit" value="更新" />
 					    		</form>
