@@ -10,25 +10,37 @@
     int attempt_number = Integer.parseInt(request.getParameter("attempt_number"));
     int score = Integer.parseInt(request.getParameter("score"));
 %>
-<h2>以下の内容で登録しますか？</h2>
-<p>【学籍番号】<%= student_id %></p>
-<p>【氏名】<%= student_name %></p>
-<p>【フリガナ】<%= student_kana %></p>
-<p>【学校コード】<%= school_code %></p>
-<p>【クラス番号】<%= class_number %></p>
-<p>【科目名】<%= subject_name %></p>
-<p>【回数】<%= attempt_number %>回目</p>
-<p>【得点】<%= score %>点</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>成績登録確認</title>
+  <link rel="stylesheet" href="css/output.css">
+</head>
+<body>
+  <div class="container">
+    <h2>以下の内容で登録しますか？</h2>
 
-<form action="grades.GradesInsert.action" method="post">
-    <input type="hidden" name="student_id" value="<%= student_id %>">
-    <input type="hidden" name="school_code" value="<%= school_code %>">
-    <input type="hidden" name="class_number" value="<%= class_number %>">
-    <input type="hidden" name="subject_name" value="<%= subject_name %>">
-    <input type="hidden" name="attempt_number" value="<%= attempt_number %>">
-    <input type="hidden" name="score" value="<%= score %>">
-    
-    <input type="submit" value="登録">
-    <input type="button" value="戻る" onclick="history.back()">
-</form>
+    <div class="confirm-item">【学籍番号】<%= student_id %></div>
+    <div class="confirm-item">【氏名】<%= student_name %></div>
+    <div class="confirm-item">【フリガナ】<%= student_kana %></div>
+    <div class="confirm-item">【学校コード】<%= school_code %></div>
+    <div class="confirm-item">【クラス番号】<%= class_number %></div>
+    <div class="confirm-item">【科目名】<%= subject_name %></div>
+    <div class="confirm-item">【回数】<%= attempt_number %>回目</div>
+    <div class="confirm-item">【得点】<%= score %>点</div>
 
+    <form action="grades.GradesInsert.action" method="post">
+      <input type="hidden" name="student_id" value="<%= student_id %>">
+      <input type="hidden" name="school_code" value="<%= school_code %>">
+      <input type="hidden" name="class_number" value="<%= class_number %>">
+      <input type="hidden" name="subject_name" value="<%= subject_name %>">
+      <input type="hidden" name="attempt_number" value="<%= attempt_number %>">
+      <input type="hidden" name="score" value="<%= score %>">
+
+      <input type="submit" value="登録">
+      <input type="button" value="戻る" onclick="history.back()">
+    </form>
+  </div>
+</body>
+</html>

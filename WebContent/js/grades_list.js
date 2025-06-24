@@ -171,7 +171,6 @@ function GradesSearch() {
 		  })
 		  .then(response => response.json())
 		  .then(data => {
-			  console.log(data);
 			  grades.innerHTML = "";
 			  if (data.length == 0) {
 				  avg.innerHTML = "";
