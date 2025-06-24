@@ -1,0 +1,70 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  margin: 0;
+  padding: 0;
+  color: #102a43;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.confirm-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.1);
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 480px;
+}
+
+.confirm-box h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #334e68;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 6px #bcccdc, -2px -2px 6px #ffffff;
+}
+
+input[type="submit"] {
+  background: linear-gradient(145deg, #f8caca, #f0b4b4);
+  color: #7b2121;
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(145deg, #e89e9e, #f8caca);
+  color: #5e1a1a;
+  transform: translateY(-2px);
+}
+
+input[type="button"] {
+  background: linear-gradient(145deg, #d9e2ec, #f0f4f8);
+  color: #334e68;
+}
+
+input[type="button"]:hover {
+  background: linear-gradient(145deg, #cbd2d9, #e6edf3);
+  transform: translateY(-2px);
+}
