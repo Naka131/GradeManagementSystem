@@ -20,8 +20,11 @@
         List<School> scList = (List<School>)session.getAttribute("scList");
         List<Grades> grList = (List<Grades>)session.getAttribute("grList");
         List<Subjects> sjList = (List<Subjects>)session.getAttribute("sjList");
+        double avg = (double)session.getAttribute("avg");
         if (grList != null && !grList.isEmpty()) {
     %>
+    <details>
+    <summary>検索</summary>
     【学籍番号検索】<input type="text" id="student_id" class="searchword" placeholder="学籍番号検索"><br>
     【学校コード】
     <select id="searchschool" name="searchschool">
@@ -56,6 +59,8 @@
 		<option value="2">2</option>
 	</select><br>
     【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索"><button id="reset">リセット</button>
+    </details>
+    <div id="avg">平均点:${avg}</div>
     <table border="1">
         <thead>
             <tr>

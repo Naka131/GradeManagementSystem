@@ -22,6 +22,8 @@
   <h2>学生一覧</h2>
 
   <c:if test="${not empty stList}">
+   <details>
+   <summary>検索</summary>
   【学籍番号検索】<input type="text" id="student_id" class="searchword" placeholder="学籍番号検索"><br>
     【学校コード】
     <select id="searchschool" name="searchschool">
@@ -39,6 +41,7 @@
 		<option value="">選択してください</option>
 	</select><br>
 	【氏名検索】<input type="text" id="searchname" class="searchword" placeholder="氏名検索"><button id="reset">リセット</button>
+	</details>
     <table border="1">
       <thead>
         <tr>
