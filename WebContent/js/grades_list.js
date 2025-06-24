@@ -7,6 +7,7 @@ const an = document.getElementById("attempt_number");
 const sn = document.getElementById("searchname");
 const grades = document.getElementsByClassName("grades");
 const gd = document.getElementById("gradesData");
+const avg = document.getElementById("avg");
 let form = "";
 
 	ssc.addEventListener("change", async function () {
@@ -170,7 +171,13 @@ function GradesSearch() {
 		  })
 		  .then(response => response.json())
 		  .then(data => {
+			  console.log(data);
 			  grades.innerHTML = "";
+			  if (data.length == 0) {
+				  avg.innerHTML = "";
+			  } else {
+				  avg.innerHTML = `平均点:${data[0].avg}`
+			  }
 		      data.forEach(item => {
 		    	  if (access_level == 1) {
 		    			form = `

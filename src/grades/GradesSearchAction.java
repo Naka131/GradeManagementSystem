@@ -23,12 +23,18 @@ public class GradesSearchAction extends Action{
 		List<Grades> grList = grDAO.keywordsearch(student_id,school_code,class_number,subject_name,attempt_number,student_name);
 		response.setContentType("application/json; charset=UTF-8");
 	    PrintWriter out = response.getWriter();
-
+	    
+	    double avg = 0;
+		for (Grades g : grList) {
+			avg += g.getScore();
+		}
+		int tmp = (int)((avg / grList.size()) * 100);
+		avg = (double)tmp / 100;
 
 	    out.print("[");
 	    for (int i = 0; i < grList.size(); i++) {
 	        Grades gr = grList.get(i);
-	        out.print("{\"student_id\":\"" + gr.getStudent_id() + "\",\"student_name\":\"" + gr.getStudent_name() + "\",\"student_kana\":\"" + gr.getStudent_kana() + "\",\"school_code\":\"" + gr.getSchool_code() + "\",\"class_number\":\"" + gr.getClass_number() + "\",\"subject_name\":\"" + gr.getSubject_name() + "\",\"subject_code\":\"" + gr.getSubject_code() + "\",\"attempt_number\":\"" + gr.getAttempt_number() + "\",\"score\":\"" + gr.getScore() + "\"}");
+	        out.print("{\"student_id\":\"" + gr.getStudent_id() + "\",\"student_name\":\"" + gr.getStudent_name() + "\",\"student_kana\":\"" + gr.getStudent_kana() + "\",\"school_code\":\"" + gr.getSchool_code() + "\",\"class_number\":\"" + gr.getClass_number() + "\",\"subject_name\":\"" + gr.getSubject_name() + "\",\"subject_code\":\"" + gr.getSubject_code() + "\",\"attempt_number\":\"" + gr.getAttempt_number() + "\",\"score\":\"" + gr.getScore() + "\",\"avg\":\"" + avg + "\"}");
 	        if (i < grList.size() - 1) out.print(",");
 	    }
 	    out.print("]");

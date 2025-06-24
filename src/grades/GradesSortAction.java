@@ -45,7 +45,13 @@ public class GradesSortAction extends Action {
 
 		response.setContentType("application/json; charset=UTF-8");
 	    PrintWriter out = response.getWriter();
-
+	    
+	    double avg = 0;
+		for (int i = 0; i < list.size(); i++) {
+			avg += Integer.parseInt(list.get(i).get(7));
+		}
+		int tmp = (int)((avg / list.size()) * 100);
+		avg = (double)tmp / 100;
 
 	    out.println("[");
 	    for (int i = 0; i < list.size(); i++) {
