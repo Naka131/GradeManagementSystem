@@ -12,7 +12,7 @@
 </head>
 <%
     request.setCharacterEncoding("UTF-8");
-    String subject_code = request.getParameter("subject_code");
+    String subject_name = request.getParameter("subject_name");
     String student_id = request.getParameter("student_id");
     String student_name = request.getParameter("student_name");
     int attempt_number = Integer.parseInt(request.getParameter("attempt_number"));
@@ -35,17 +35,17 @@
     </div><br>
 
     <form action="grades.GradesUpdate.action" method="POST" class="form">
-        <input type="hidden" name="subject_code" value="<%= subject_code %>" />
+        <input type="hidden" name="subject_name" value="<%= subject_name %>" />
         <input type="hidden" name="student_id" value="<%= student_id %>" />
         <input type="hidden" name="attempt_number" value="<%= attempt_number %>" />
 
         <div class="form-group">
             <label>【科目名】</label>
-            <select id="subject_code" name="update_subject_code" required>
+            <select id="subject_name" name="update_subject_name" required>
                 <%
                     for (Subjects sj : sjList) {
                 %>
-                    <option value="<%= sj.getSubject_code() %>"><%= sj.getSubject_name() %></option>
+                    <option value="<%= sj.getSubject_name() %>"><%= sj.getSubject_name() %></option>
                 <%
                     }
                 %>
