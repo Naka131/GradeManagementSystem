@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-buttons">
-            <input type="submit" value="送信"><br><br>
+            <input type="submit" value="更新"><br><br>
             <input type="button" value="戻る" onclick="location.href='input.StudentListInput.action'">
         </div>
     </form>
