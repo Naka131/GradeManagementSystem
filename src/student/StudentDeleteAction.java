@@ -1,7 +1,10 @@
 package student;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Students;
 import dao.StudentDAO;
 import tool.Action;
 
@@ -13,8 +16,11 @@ public class StudentDeleteAction extends Action {
 
 		StudentDAO bdao=new StudentDAO();
 		bdao.delete(student_id);
+		
+		List<Students> stList = bdao.search();
+        request.getSession().setAttribute("stList", stList);
 
-		return "WEB-INF/delete_success.jsp";
+		return "WEB-INF/student_delete_success.jsp";
 	} catch (Exception e) {
 		System.out.print(e);
 		return "WEB-INF/error.jsp";

@@ -39,7 +39,7 @@
             <label>現在の権限:</label>
             <c:choose>
                 <c:when test="<%= access_level == 1 %>">
-                    <strong>管理者</strong>>
+                    <strong>管理者</strong>
                 </c:when>
                 <c:otherwise>
                     <strong>ユーザー</strong>
