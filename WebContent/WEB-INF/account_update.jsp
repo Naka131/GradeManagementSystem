@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-buttons">
-            <input type="submit" value="送信">
+            <input type="submit" value="更新">
             <input type="button" value="戻る" onclick="location.href='input.AccountListInput.action'">
         </div>
     </form>
