@@ -9,7 +9,8 @@
 <body>
 <div class="container">
     <h1>削除できました！</h1>
-    <p><a href="index.jsp">トップページに戻る</a></p>
+    <a href="index.jsp">トップページへ</a>
+    <a href="input.StudentListInput.action">学生一覧へ</a>
 </div>
 </body>
 </html>

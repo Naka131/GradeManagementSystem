@@ -1,7 +1,10 @@
 package grades;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Grades;
 import dao.GradesDAO;
 import tool.Action;
 
@@ -21,7 +24,10 @@ public class GradesUpdateAction extends Action {
 		GradesDAO gDAO = new GradesDAO();
 		gDAO.update(update_score, update_attempt_number, update_subject_name,student_id,subject_name,attempt_number);
 
-		return "WEB-INF/update_success.jsp";
+		List<Grades> grList = gDAO.search();
+        request.getSession().setAttribute("grList", grList);
+
+		return "WEB-INF/grades_update_success.jsp";
 	} catch (Exception e) {
 		System.out.println(e);
 		return "WEB-INF/error.jsp";

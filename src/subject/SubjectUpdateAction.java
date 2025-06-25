@@ -1,7 +1,10 @@
 package subject;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Subjects;
 import dao.SubjectsDAO;
 import tool.Action;
 
@@ -18,7 +21,10 @@ public class SubjectUpdateAction extends Action {
 		SubjectsDAO sjDAO = new SubjectsDAO();
 		sjDAO.update(update_subject_code, subject_name, subject_code);
 
-		return "WEB-INF/update_success.jsp";
+		List<Subjects> sjList = sjDAO.search();
+        request.getSession().setAttribute("sjList", sjList);
+
+		return "WEB-INF/subject_update_success.jsp";
 	} catch (Exception e) {
 		return "WEB-INF/error.jsp";
 	}

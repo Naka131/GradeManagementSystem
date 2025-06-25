@@ -3,7 +3,7 @@
     request.setCharacterEncoding("UTF-8");
     String teacher_id = request.getParameter("teacher_id");
 %>
-<link rel="stylesheet" href="css/delete.css">
+<link rel="stylesheet" href="css/delete.css">	
 <div class="confirm-box">
     <h2>本当に削除しますか？</h2>
 
