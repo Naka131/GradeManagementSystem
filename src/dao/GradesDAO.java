@@ -84,14 +84,14 @@ public class GradesDAO extends DAO {
 
 
 
-	public String delete(String student_id,String subject_code,int attempt_number) throws Exception {
+	public String delete(String student_id,String subject_name,int attempt_number) throws Exception {
 
 		Connection con=getConnection();
 
 		PreparedStatement st=con.prepareStatement(
-			"delete from exam where student_id=? and subject_code=? and attempt_number=?");
+			"delete from exam where student_id=? and subject_name=? and attempt_number=?");
 		st.setString(1, student_id);
-		st.setString(2, subject_code);
+		st.setString(2, subject_name);
 		st.setInt(3, attempt_number);
 		st.executeUpdate();
 

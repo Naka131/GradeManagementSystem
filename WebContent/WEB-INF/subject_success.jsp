@@ -11,7 +11,7 @@
     <h1>登録できました！</h1>
     <div class="button-group">
       <a href="index.jsp" class="button">トップページに戻る</a>
-      <a href="subject.SubjectRegister.action" class="button">再登録</a>
+      <a href="input.SubjectRegisterInput.action" class="button">再登録</a>
     </div>
   </div>
 </body>
