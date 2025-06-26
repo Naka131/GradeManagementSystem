@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>更新できました!</h1>
+    <h1>更新完了!</h1>
     <a href="index.jsp">トップページへ</a>
     <a href="input.SubjectListInput.action">科目一覧へ</a>
 </div>

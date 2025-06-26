@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>削除できました！</h1>
+    <h1>削除完了</h1>
     <a href="index.jsp">トップページへ</a>
     <a href="input.GradesListInput.action">成績一覧へ</a>
 </div>

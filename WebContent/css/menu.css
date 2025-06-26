@@ -75,6 +75,23 @@ h2 {
   outline-offset: 4px;
 }
 
+input[type="button"] {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #e3ebf3;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+input[type="button"]:hover {
+  background-color: #d2dde9;
+}
 
 @media (max-width: 600px) {
   .container {
