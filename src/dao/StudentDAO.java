@@ -18,7 +18,7 @@ public class StudentDAO extends DAO {
 
 		PreparedStatement s;
 		s=con.prepareStatement(
-			"select * from student order by student_id asc");
+			"select * from student");
 		ResultSet rs=s.executeQuery();
 
 		while (rs.next()) {
@@ -66,13 +66,13 @@ public class StudentDAO extends DAO {
 		con.close();
 		return stList;
 	}
-	
+
 	public List<Students> keywordsearch(String stundet_id,String school_code,String class_number,String student_name)
 			throws Exception {
 		List<Students> stList = new ArrayList<>();
-		
+
 		Connection con=getConnection();
-		
+
 		PreparedStatement s;
 		s=con.prepareStatement(
 				"select * from student where student_id like ? and school_code like ? and class_number like ? and(student_name like ? or student_kana like ?)");
@@ -82,7 +82,7 @@ public class StudentDAO extends DAO {
 		s.setString(4, "%" + student_name + "%");
 		s.setString(5, "%" + student_name + "%");
 		ResultSet rs=s.executeQuery();
-		
+
 		while (rs.next()) {
 			Students st = new Students();
 			st.setStudent_id(rs.getString("student_id"));
@@ -94,7 +94,7 @@ public class StudentDAO extends DAO {
 			st.setIs_enrolled(rs.getString("is_enrolled"));
 			stList.add(st);
 		}
-		
+
 		s.close();
 		con.close();
 		return stList;

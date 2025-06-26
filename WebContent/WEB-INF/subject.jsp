@@ -26,6 +26,7 @@
             </c:when>
         </c:choose>
     </div>
+    <input type="button" value="戻る" onclick="location.href='index.jsp'">
 </div>
 
 </body>

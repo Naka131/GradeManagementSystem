@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/success.css">
 <body>
   <div class="container">
-    <h1>新規登録が完了しました！</h1>
+    <h1>新規登録完了</h1>
     <a href="index.jsp">トップページ</a>
   </div>
 </body>

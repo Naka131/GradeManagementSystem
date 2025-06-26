@@ -20,6 +20,7 @@
             </c:if>
             <a href="student.Student.action" class="menu-card">学生一覧</a>
         </div>
+        <input type="button" value="戻る" onclick="location.href='index.jsp'">
     </div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>登録できました！</h1>
+        <h1>登録完了</h1>
         <a href="index.jsp">トップページに戻る</a>
         <a href="grades.GradesRegister.action">再登録</a>
     </div>

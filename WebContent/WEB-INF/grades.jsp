@@ -16,6 +16,7 @@
             <a href="grades.GradesRegister.action" class="menu-card">成績登録</a>
             <a href="grades.GradesList.action" class="menu-card">成績参照</a>
         </div>
+        <input type="button" value="戻る" onclick="location.href='index.jsp'">
     </div>
 </body>
 </html>

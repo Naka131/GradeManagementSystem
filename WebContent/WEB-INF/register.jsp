@@ -18,6 +18,7 @@
         <a href="input.AccountRegisterInput.action" class="menu-card">アカウント登録</a>
         <a href="account.Account.action" class="menu-card">アカウント一覧</a>
     </div>
+    <input type="button" value="戻る" onclick="location.href='index.jsp'">
 </div>
 
 </body>
