@@ -12,11 +12,11 @@ public class GradesDeleteAction extends Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	try {
 		String student_id=request.getParameter("student_id");
-		String subject_code=request.getParameter("subject_code");
+		String subject_name=request.getParameter("subject_name");
 		int attempt_number=Integer.parseInt(request.getParameter("attempt_number"));
 
 		GradesDAO gdao=new GradesDAO();
-		gdao.delete(student_id,subject_code,attempt_number);
+		gdao.delete(student_id,subject_name,attempt_number);
 
 		List<Grades> grList = gdao.search();
         request.getSession().setAttribute("grList", grList);
