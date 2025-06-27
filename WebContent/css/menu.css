@@ -87,6 +87,7 @@ input[type="button"] {
   cursor: pointer;
   transition: background-color 0.2s ease;
   text-align: center;
+  font-weight: 600;
 }
 
 input[type="button"]:hover {
