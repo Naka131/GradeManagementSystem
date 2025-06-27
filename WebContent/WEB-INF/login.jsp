@@ -10,7 +10,7 @@
   <div class="container">
     <h2>ログイン</h2>
     <form action="account.AccountSearch.action" method="post">
-      
+
       <div class="form-group">
         <label for="teacher_id">ユーザーID：</label>
         <input type="text" id="teacher_id" name="teacher_id" required>
@@ -23,8 +23,9 @@
 
       <div class="form-buttons">
         <input type="submit" value="ログイン">
+        <a href="input.AccountRegisterInput.action">新規登録</a>
       </div>
-      
+
       <c:if test="${not empty errorMsg}">
         <p style="color:red; text-align:center;">${errorMsg}</p>
       </c:if>

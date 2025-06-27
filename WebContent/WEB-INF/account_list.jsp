@@ -47,7 +47,7 @@
             </td>
             <c:if test="${account.access_level == 1}">
               <td class="actions">
-                <c:if test="${ac.teacher_id != account.teacher_id}">
+                <c:if test="${ac.access_level != 1}">
                   <form method="post" action="input.AccountDeleteInput.action">
                     <input type="hidden" name="teacher_id" value="${ac.teacher_id}" />
                     <input type="submit" value="削除" />
